@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>در بیرجند کجا؟ | راهنمای مشاغل و نظرات مردم بیرجند</title>
+  <meta name="description" content="بهترین رستوران‌ها، کافه‌ها، پزشکان، جاذبه‌ها و کسب‌وکارهای بیرجند را با نظر واقعی مردم پیدا کنید.">
+  <meta name="theme-color" content="#064E3B">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">رفتن به محتوای اصلی</a>
+
+    <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__row">
+      <a href="index.html" class="brand" aria-label="در بیرجند کجا — صفحه اصلی">
+        <img src="assets/img/logo-mark.svg" alt="" width="40" height="40" class="brand__mark">
+        <span class="brand__text"><b>در بیرجند <em>کجا؟</em></b><small>راهنمای مشاغل و نظرات مردم</small></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="منوی اصلی">
+        <a href="index.html#categories">دسته‌بندی‌ها</a>
+        <a href="index.html#places">برترین‌ها</a>
+        <a href="index.html#hoods">محله‌ها</a>
+        <a href="index.html#reviews">نظرات تازه</a>
+        <a href="index.html#business">ویژه کسب‌وکارها</a>
+      </nav>
+      <div class="header__actions">
+        <button class="btn btn--ghost btn--sm hide-sm" data-open-review><span data-ico="message"></span>ثبت نظر</button>
+        <a href="index.html#business" class="btn btn--primary btn--sm magnetic"><span data-ico="plus"></span><span class="hide-xs">ثبت کسب‌وکار</span></a>
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="باز کردن منو" aria-expanded="false" aria-controls="nav"><span data-ico="menu"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="place-page">
+    <div class="container" id="placePage">
+      <section class="p-hero">
+        <nav class="crumbs" id="crumbs" aria-label="مسیر صفحه"></nav>
+        <div class="gallery" id="gallery"></div>
+      </section>
+      <div class="p-main">
+        <div>
+          <div class="p-title" id="pTitle"></div>
+          <p class="p-desc" id="pDesc"></p>
+          <div class="tags" id="pTags"></div>
+          <div style="height:32px"></div>
+          <section class="card" aria-labelledby="sumH">
+            <h2 id="sumH">امتیاز کاربران</h2>
+            <div class="summary" id="pSummary"></div>
+          </section>
+          <section class="card" aria-labelledby="rvH">
+            <div class="section__head" style="margin-bottom:18px;align-items:center">
+              <h2 id="rvH" style="margin:0">نظرات کاربران</h2>
+              <button class="btn btn--primary btn--sm magnetic" data-open-review><span data-ico="message"></span>نوشتن نظر</button>
+            </div>
+            <div class="p-reviews" id="pReviews"></div>
+          </section>
+        </div>
+        <aside class="side">
+          <section class="card" aria-label="اطلاعات تماس">
+            <div id="pInfo"></div>
+            <div style="height:18px"></div>
+            <a href="#" class="btn btn--primary btn--block magnetic"><span data-ico="navigation"></span>مسیریابی</a>
+            <a href="#" class="btn btn--ghost btn--block"><span data-ico="phone"></span>تماس</a>
+          </section>
+          <section class="card">
+            <h2>مکان‌های مشابه</h2>
+            <div class="similar" id="pSimilar"></div>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="brand brand--light">
+          <img src="assets/img/logo-mark.svg" alt="" width="44" height="44" class="brand__mark">
+          <span class="brand__text"><b>در بیرجند <em>کجا؟</em></b><small>راهنمای مشاغل و نظرات مردم</small></span>
+        </a>
+        <p>اولین مرجع مستقل معرفی و امتیازدهی کسب‌وکارهای بیرجند؛ ساخته‌شده با عشق برای مردم خراسان جنوبی.</p>
+        <div class="socials">
+          <a href="#" aria-label="اینستاگرام"><span data-ico="instagram"></span></a>
+          <a href="#" aria-label="تلگرام"><span data-ico="send"></span></a>
+          <a href="#" aria-label="وب‌سایت"><span data-ico="globe"></span></a>
+        </div>
+      </div>
+      <div>
+        <h4>کاربران</h4>
+        <a href="index.html#categories">دسته‌بندی‌ها</a><a href="index.html#hoods">محله‌ها</a><a href="#" data-open-review>ثبت نظر</a><a href="#">قوانین نظردهی</a>
+      </div>
+      <div>
+        <h4>کسب‌وکارها</h4>
+        <a href="index.html#business">ثبت کسب‌وکار</a><a href="#">احراز مالکیت</a><a href="#">تعرفه تبلیغات</a><a href="#">داشبورد</a>
+      </div>
+      <div>
+        <h4>در بیرجند کجا</h4>
+        <a href="#">درباره ما</a><a href="#">تماس با ما</a><a href="#">حریم خصوصی</a><a href="#">فرصت‌های شغلی</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© ۱۴۰۵ در بیرجند کجا — تمامی حقوق محفوظ است.</span>
+      <span>بیرجند، خراسان جنوبی</span>
+    </div>
+  </footer>
+
+  <!-- Mobile bottom nav -->
+  <nav class="bottom-nav" aria-label="ناوبری موبایل">
+    <a href="index.html" class="active"><span data-ico="home"></span>خانه</a>
+    <a href="index.html#categories"><span data-ico="grid"></span>دسته‌ها</a>
+    <button data-open-review class="bottom-nav__fab" aria-label="ثبت نظر"><span data-ico="plus"></span></button>
+    <a href="index.html#hoods"><span data-ico="pin"></span>محله‌ها</a>
+    <a href="index.html#business"><span data-ico="store"></span>کسب‌وکار</a>
+  </nav>
+
+  <!-- Review modal -->
+  <div class="modal" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="rmTitle" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel">
+      <button class="icon-btn modal__close" data-close aria-label="بستن"><span data-ico="x"></span></button>
+      <h3 id="rmTitle">تجربه‌ات رو با بقیه به اشتراک بذار</h3>
+      <form id="reviewForm" novalidate>
+        <div class="field">
+          <label for="rmPlace">کسب‌وکار</label>
+          <select id="rmPlace" required></select>
+        </div>
+        <fieldset class="field">
+          <legend>امتیاز تو</legend>
+          <div class="rate-input" id="rateInput" role="radiogroup" aria-label="امتیاز از ۱ تا ۵"></div>
+          <small class="rate-label" id="rateLabel">روی ستاره‌ها بزن</small>
+        </fieldset>
+        <div class="field">
+          <label for="rmText">نظرت</label>
+          <textarea id="rmText" rows="4" minlength="20" required placeholder="از کیفیت، برخورد، قیمت و … بگو"></textarea>
+          <small class="hint"><span id="rmCount">۰</span> / حداقل ۲۰ نویسه</small>
+          <small class="error" id="rmError" hidden></small>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">ثبت نظر<span data-ico="send"></span></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

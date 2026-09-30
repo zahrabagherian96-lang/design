@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="در بیرجند کجا">
+  <defs>
+    <linearGradient id="g" x1="10" y1="4" x2="54" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34D399"/>
+      <stop offset=".55" stop-color="#059669"/>
+      <stop offset="1" stop-color="#064E3B"/>
+    </linearGradient>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@500;900&amp;display=swap');</style>
+  </defs>
+  <g transform="translate(290 8)">
+    <path d="M32 3C17.6 3 7 13.9 7 27.6 7 45.2 32 61 32 61s25-15.8 25-33.4C57 13.9 46.4 3 32 3Z" fill="url(#g)"/>
+    <path d="M20.5 38V29.5a11.5 11.5 0 0 1 23 0V38Z" fill="#fff"/>
+    <path d="M27 38v-6a5 5 0 0 1 10 0v6Z" fill="#059669"/>
+    <path d="M32 18v-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="32" cy="11.4" r="2.4" fill="#A3E635"/>
+    <path d="M17 41.5h30" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="282" y="46" direction="rtl" text-anchor="start" font-family="Vazirmatn, Tahoma, sans-serif" font-size="30" font-weight="900" fill="#064E3B">در بیرجند <tspan fill="#059669">کجا؟</tspan></text>
+  <text x="282" y="70" direction="rtl" text-anchor="start" font-family="Vazirmatn, Tahoma, sans-serif" font-size="13" font-weight="500" fill="#64748B">راهنمای مشاغل و نظرات مردم بیرجند</text>
+</svg>
