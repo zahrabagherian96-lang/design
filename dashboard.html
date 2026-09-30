@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>داشبورد کسب‌وکار | در بیرجند کجا؟</title>
+  <meta name="description" content="نمونه داشبورد مدیریت کسب‌وکار در در بیرجند کجا.">
+  <meta name="theme-color" content="#064E3B">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="dashboard">
+  <div id="layout-top"></div>
+  <main id="main">
+    <div class="container dash-page">
+      <aside class="dash-side" id="dTabs" role="tablist" aria-label="بخش‌های داشبورد" aria-orientation="vertical">
+        <div class="dash-biz" id="dBiz"></div>
+        <button role="tab" aria-selected="true" aria-controls="dOverview"><span data-ico="chart"></span>نمای کلی</button>
+        <button role="tab" aria-selected="false" aria-controls="dReviews"><span data-ico="message"></span>نظرات<span class="count" id="dCount">۲</span></button>
+        <button role="tab" aria-selected="false" aria-controls="dStats"><span data-ico="list"></span>گزارش‌ها</button>
+        <button role="tab" aria-selected="false" aria-controls="dEdit"><span data-ico="edit"></span>ویرایش صفحه</button>
+        <a class="btn btn--outline-light btn--sm" href="place.html#p8" style="margin-top:10px">مشاهده صفحه عمومی</a>
+      </aside>
+      <div class="dash-main">
+        <div class="dash-head"><div><h1>سلام، مدیر کافه عناب</h1><p>عملکرد هفت روز اخیر صفحه شما</p></div><span class="demo-note"><span data-ico="info"></span>داشبورد نمایشی با داده نمونه</span></div>
+        <section class="dpanel" id="dOverview" role="tabpanel">
+          <div class="kpis">
+            <div class="kpi"><small><span data-ico="eye"></span>بازدید صفحه</small><b>۴٬۲۲۵</b><span class="delta">۱۸٪ بیشتر از هفته قبل</span></div>
+            <div class="kpi"><small><span data-ico="phone"></span>تماس تلفنی</small><b>۳۶۰</b><span class="delta">۹٪ بیشتر</span></div>
+            <div class="kpi"><small><span data-ico="navigation"></span>مسیریابی</small><b>۵۴۱</b><span class="delta">۲۴٪ بیشتر</span></div>
+            <div class="kpi"><small><span data-ico="star"></span>میانگین امتیاز</small><b>۴.۶</b><span class="delta down">۰.۱ کمتر</span></div>
+          </div>
+          <div class="dash-grid" style="margin-top:20px">
+            <div class="chart-card"><div class="chart-card__head"><h2>بازدید و تماس روزانه</h2><div class="legend"><span><i></i>بازدید</span><span><i class="l2"></i>تماس (×۶)</span></div></div><svg class="chart" id="chart" viewBox="0 0 640 240" role="img" aria-label="نمودار بازدید روزانه؛ بیشترین بازدید پنجشنبه با ۸۱۰ بازدید"></svg></div>
+            <div class="chart-card"><h2>تکمیل صفحه</h2>
+              <div class="progress-ring" style="margin-top:12px"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" stroke="#E3ECE7"/><circle id="ring" cx="50" cy="50" r="42" stroke="#10B981" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="66"/></svg><div><b style="font-size:28px">۷۵٪</b><p class="muted">دو کار دیگر تا صفحه کامل</p></div></div>
+              <ul class="todo"><li class="done"><span data-ico="checkCircle"></span>ساعت کاری</li><li class="done"><span data-ico="checkCircle"></span>منوی خدمات</li><li class="done"><span data-ico="checkCircle"></span>احراز مالکیت</li><li><span data-ico="circle"></span>افزودن ۱۰ عکس</li><li><span data-ico="circle"></span>پاسخ به نظرات تازه</li></ul>
+            </div>
+          </div>
+        </section>
+        <section class="dpanel" id="dReviews" role="tabpanel" hidden><div class="chart-card"><h2 style="margin-bottom:14px">نظرات در انتظار پاسخ</h2><div class="inbox" id="inbox"></div></div></section>
+        <section class="dpanel" id="dStats" role="tabpanel" hidden><div class="chart-card"><h2 style="margin-bottom:14px">گزارش رویدادها</h2><div class="tbl-wrap"><table class="tbl"><thead><tr><th>تاریخ</th><th>رویداد</th><th>تعداد</th></tr></thead><tbody id="dTable"></tbody></table></div></div></section>
+        <section class="dpanel" id="dEdit" role="tabpanel" hidden>
+          <form class="form-card" id="dProfile" novalidate><h2>ویرایش اطلاعات صفحه</h2><p>تغییرات پس از بررسی در صفحه عمومی نمایش داده می‌شود.</p>
+            <div class="form-grid">
+              <div class="f"><label for="eName">نام کسب‌وکار</label><input class="input" id="eName" value="کافه عناب" required></div>
+              <div class="f"><label for="eHours">ساعت کاری</label><input class="input" id="eHours" value="۹:۰۰ تا ۲۴:۰۰" required></div>
+              <div class="f full"><label for="eDesc">معرفی</label><textarea class="textarea" id="eDesc" required minlength="20">قهوه تخصصی، کیک‌های خانگی و دمنوش عناب بیرجندی؛ پاتوق دانشجوها با فضای کتاب‌خوانی.</textarea></div>
+              <label class="switch full">اکنون باز است<input type="checkbox" checked></label>
+            </div>
+            <div class="form-actions"><button class="btn btn--primary">ذخیره تغییرات</button></div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div id="layout-bottom"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/pages.js"></script>
+</body>
+</html>

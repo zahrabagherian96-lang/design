@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>تماس با ما | در بیرجند کجا؟</title>
+  <meta name="description" content="راه‌های ارتباط با تیم در بیرجند کجا.">
+  <meta name="theme-color" content="#064E3B">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="contact" data-dark-hero="1">
+  <div id="layout-top"></div>
+  <main id="main">
+    <section class="page-hero">
+      
+      <div class="container">
+        <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span data-ico="chevron"></span><span aria-current="page">تماس با ما</span></nav>
+        <div class="page-hero__row"><div><h1>با ما در تماس باشید</h1><p>سؤال، پیشنهاد یا گزارش مشکل؟ از فرم زیر پیام بدهید یا از راه‌های دیگر با ما در ارتباط باشید.</p></div></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="info-cards">
+          <div class="info-card reveal"><span data-ico="pin"></span><div><small>نشانی دفتر</small><b>بیرجند، خیابان معلم، ساختمان نوآوری، طبقه ۳</b></div></div>
+          <div class="info-card reveal"><span data-ico="phone"></span><div><small>تلفن پشتیبانی (نمونه)</small><b class="copy-row"><span dir="ltr">۰۵۶-۳۲۰۰۰۰۰۰</span><button class="copy-btn" data-copy="056-32000000" data-copy-msg="شماره کپی شد">کپی</button></b></div></div>
+          <div class="info-card reveal"><span data-ico="mail"></span><div><small>ایمیل (نمونه)</small><b class="copy-row"><span dir="ltr">hello@example.com</span><button class="copy-btn" data-copy="hello@example.com" data-copy-msg="ایمیل کپی شد">کپی</button></b></div></div>
+          <div class="info-card reveal"><span data-ico="clock"></span><div><small>ساعت پاسخ‌گویی</small><b>شنبه تا چهارشنبه، ۹ تا ۱۷</b></div></div>
+          <div class="info-card reveal" id="social"><span data-ico="instagram"></span><div><small>شبکه‌های اجتماعی</small><b>به‌زودی راه‌اندازی می‌شوند</b></div></div>
+        </div>
+        <div class="form-card reveal" id="contactCard">
+          <h2>ارسال پیام</h2><p>معمولاً ظرف یک روز کاری پاسخ می‌دهیم.</p>
+          <form id="contactForm" class="form-grid" novalidate>
+            <div class="f"><label for="kName">نام</label><input class="input" id="kName" required data-req="نام خود را بنویسید." autocomplete="name"></div>
+            <div class="f"><label for="kEmail">ایمیل</label><input class="input" id="kEmail" type="email" required data-req="ایمیل را بنویسید تا بتوانیم پاسخ دهیم." dir="ltr" autocomplete="email"></div>
+            <div class="f full"><label for="kTopic">موضوع</label><select class="select" id="kTopic"><option>سؤال عمومی</option><option>گزارش نظر نامناسب</option><option>همکاری تجاری</option><option>مشکل فنی سایت</option></select></div>
+            <div class="f full"><label for="kMsg">پیام</label><textarea class="textarea" id="kMsg" required minlength="10" data-req="متن پیام را بنویسید."></textarea></div>
+            <div class="full"><button class="btn btn--primary btn--block">ارسال پیام<span data-ico="send"></span></button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="section section--tint"><div class="container"><div class="section__head section__head--center"><h2 class="section__title split">شاید جواب سؤالتان اینجا باشد</h2></div><div class="faq" id="cFaq"></div></div></section>
+  </main>
+  <div id="layout-bottom"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>محله‌های بیرجند | در بیرجند کجا؟</title>
+  <meta name="description" content="محله‌های بیرجند را روی نقشه ببینید و بهترین مکان‌های هر محله را پیدا کنید.">
+  <meta name="theme-color" content="#064E3B">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="hoods" data-dark-hero="1">
+  <div id="layout-top"></div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero__bg" aria-hidden="true"><img src="assets/img/photos/sight-3.jpg" alt=""></div>
+      <div class="container">
+        <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span data-ico="chevron"></span><span aria-current="page">محله‌ها</span></nav>
+        <div class="page-hero__row"><div><h1>بیرجند، محله به محله</h1><p>روی هر محله در نقشه بزن تا ویژگی‌ها و محبوب‌ترین مکان‌هایش را ببینی.</p></div></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container hood-map-wrap">
+        <div class="hood-map reveal"><svg id="hoodMap" viewBox="0 0 500 400" role="group" aria-label="نقشه نمادین محله‌های بیرجند"></svg><p class="muted" style="font-size:13px;margin-top:8px">نقشه نمادین است و موقعیت دقیق محله‌ها را نشان نمی‌دهد.</p></div>
+        <div class="hood-info" id="hoodInfo" aria-live="polite"></div>
+      </div>
+    </section>
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section__head"><div><span class="kicker">۸ محله پرطرفدار</span><h2 class="section__title split">همه محله‌ها</h2></div></div>
+        <div class="hood-cards" id="hoodCards"></div>
+      </div>
+    </section>
+  </main>
+  <div id="layout-bottom"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/pages.js"></script>
+</body>
+</html>

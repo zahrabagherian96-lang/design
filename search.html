@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>کاوش مکان‌ها | در بیرجند کجا؟</title>
+  <meta name="description" content="جستجو و فیلتر رستوران‌ها، کافه‌ها، پزشکان و کسب‌وکارهای بیرجند بر اساس محله، امتیاز و قیمت.">
+  <meta name="theme-color" content="#064E3B">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="search" data-dark-hero="1">
+  <div id="layout-top"></div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero__bg" aria-hidden="true"><img src="assets/img/photos/cafe-1.jpg" alt=""></div>
+      <div class="container">
+        <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span data-ico="chevron"></span><span aria-current="page">کاوش</span></nav>
+        <div class="page-hero__row"><div><h1><span id="resTitle">همه مکان‌های بیرجند</span></h1><p><span id="resLead">با فیلترها نتیجه را دقیق‌تر کنید.</span></p></div></div>
+      </div>
+    </section>
+    <div class="container search-layout" id="resTop">
+      <aside class="filters" id="filters" aria-label="فیلترها">
+        <div class="filters__head"><h2>فیلترها</h2><button class="icon-btn filters__close" id="filtersClose" aria-label="بستن فیلترها"><span data-ico="x"></span></button></div>
+        <div class="fgroup"><b>دسته‌بندی</b><div id="fCats"></div></div>
+        <div class="fgroup"><label for="fHood"><b>محله</b></label><select class="select" id="fHood"></select></div>
+        <div class="fgroup"><b>حداقل امتیاز</b><div id="fRating"></div></div>
+        <div class="fgroup"><b>سطح قیمت</b><div class="pills" id="fPrice"></div></div>
+        <div class="fgroup">
+          <label class="switch">فقط مکان‌های باز<input type="checkbox" id="fOpen"></label>
+          <label class="switch">فقط تأییدشده‌ها<input type="checkbox" id="fVerified"></label>
+        </div>
+      </aside>
+      <section class="results" aria-labelledby="count">
+        <form class="q-box" id="sqForm" role="search"><span data-ico="search"></span><label for="sq" class="sr-only">جستجو</label><input type="search" id="sq" placeholder="نام مکان، غذا، خدمت یا ویژگی…" autocomplete="off"><button class="btn btn--primary btn--sm">جستجو</button></form>
+        <div class="results-bar">
+          <h2 id="count" aria-live="polite"></h2>
+          <button class="btn btn--ghost btn--sm filter-toggle" id="filterToggle"><span data-ico="filter"></span>فیلترها</button>
+          <label class="sr-only" for="sort">مرتب‌سازی</label>
+          <select class="select" id="sort"><option value="rec">پیشنهادی</option><option value="rating">بالاترین امتیاز</option><option value="reviews">بیشترین نظر</option><option value="cheap">اقتصادی‌ترین</option></select>
+          <div class="seg" id="view" role="group" aria-label="نحوه نمایش"><button type="button" data-view="grid" aria-pressed="true" aria-label="نمایش شبکه‌ای"><span data-ico="grid"></span></button><button type="button" data-view="list" aria-pressed="false" aria-label="نمایش فهرستی"><span data-ico="list"></span></button></div>
+        </div>
+        <div class="active-chips" id="chips"></div>
+        <div class="place-grid" id="results"></div>
+        <div class="no-results" id="noRes" hidden><span data-ico="search"></span><h3>مکانی با این فیلترها پیدا نشد</h3><p>چند فیلتر را بردارید یا عبارت کوتاه‌تری جستجو کنید.</p><button class="btn btn--primary" id="noResClear">پاک کردن همه فیلترها</button></div>
+        <div class="pager" id="pager"></div>
+      </section>
+    </div>
+  </main>
+  <div id="layout-bottom"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/pages.js"></script>
+</body>
+</html>
