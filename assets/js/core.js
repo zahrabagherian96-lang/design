@@ -352,7 +352,7 @@
       });
       el.addEventListener('pointerleave', () => G.to(el, { x: 0, y: 0, duration: .8, ease: 'elastic.out(1,.4)' }));
     });
-    $$('.cat, .place, .hood, .cat-tile, .hood-card, .post, .plan, .feature, .member', scope).forEach(el => {
+    $$('.cat, .place, .cat-tile, .hood-card, .post, .plan, .feature, .member', scope).forEach(el => {
       if (el.dataset.fx) return; el.dataset.fx = 1;
       el.addEventListener('pointermove', e => {
         const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;

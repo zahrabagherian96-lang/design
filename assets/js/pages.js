@@ -47,7 +47,7 @@
     const featured = [1, 5, 8, 23, 11, 13, 2, 9, 15, 6, 12, 17];
     fill('#placeGrid', featured.map(id => BK.placeCard(BK.placeById(id))).join(''));
     fill('#hoodTrack', BK.hoods.map((h, i) => `<a href="${BK.searchUrl('hood-' + h.id)}" class="hood" style="--h:${150 + i * 12}">
-      <img class="hood__art" src="${BK.img(h.photo)}" alt="" loading="lazy">
+      <img class="hood__art" src="${BK.img(h.photo)}" alt="" decoding="async" width="330" height="400">
       <span class="hood__num">${BK.fa(i + 1).padStart(2, '۰')}</span>
       <h3>${h.name}</h3><p>${h.tag}</p>
       <div class="hood__foot"><span>${BK.fa(h.places)} مکان ثبت‌شده</span><span class="hood__go">${ico('arrow')}</span></div></a>`).join(''));
@@ -157,12 +157,16 @@
     $('.rv-marquee').addEventListener('pointerenter', () => G.to([rv1, rv2], { timeScale: 0, duration: .5 }));
     $('.rv-marquee').addEventListener('pointerleave', () => G.to([rv1, rv2], { timeScale: 1, duration: .5 }));
     $('.rv-marquee').addEventListener('focusin', () => G.to([rv1, rv2], { timeScale: 0, duration: .3 }));
-    ST.create({ onUpdate: s => { const v = Math.min(Math.abs(s.getVelocity()) / 400, 5); G.to(loops[0], { timeScale: 1 + v, duration: .2, overwrite: true, onComplete: () => G.to(loops[0], { timeScale: 1, duration: 1 }) }); } });
+    // marquee speeds up with scroll velocity — one cheap ticker instead of a new tween per scroll event
+    let boost = 0, ts = 1;
+    ST.create({ onUpdate: s => { boost = Math.max(boost, Math.min(Math.abs(s.getVelocity()) / 400, 4)); } });
+    G.ticker.add(() => { const t = 1 + boost; ts += (t - ts) * .12; boost *= .92; if (Math.abs(ts - loops[0].timeScale()) > .01) loops[0].timeScale(ts); });
     G.to('.marquee', { scrollTrigger: { trigger: '.marquee', scrub: true }, rotate: 1.2 });
     const mm = G.matchMedia();
     mm.add('(min-width: 721px)', () => {
       const track = $('#hoodTrack'), dist = () => Math.max(0, track.scrollWidth - innerWidth);
-      G.to(track, { x: () => dist(), ease: 'none', scrollTrigger: { trigger: '.hoods', start: 'top top', end: () => '+=' + dist(), pin: '.hoods__pin', scrub: 1, invalidateOnRefresh: true, anticipatePin: 1 } });
+      // scrub: true maps scroll 1:1 (no trailing catch-up); the pin is the only moving layer
+      G.to(track, { x: () => dist(), ease: 'none', force3D: true, scrollTrigger: { trigger: '.hoods', start: 'top top', end: () => '+=' + dist(), pin: '.hoods__pin', scrub: true, invalidateOnRefresh: true, anticipatePin: 1, fastScrollEnd: true } });
     });
     if (matchMedia('(hover: hover) and (pointer: fine)').matches) $('.hero').addEventListener('pointermove', e => {
       const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;

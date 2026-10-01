@@ -292,9 +292,9 @@ p { margin: 0; }
 .hoods__pin { padding: 96px 0; position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
 .hoods__head { margin-bottom: 44px; max-width: var(--container); }
 .hoods__head p { max-width: 520px; margin-top: 10px; }
-.hoods__track { display: flex; gap: 24px; padding-inline: max(16px, (100vw - var(--container)) / 2); width: max-content; }
-.hood { width: 330px; height: 400px; flex: none; border-radius: var(--r-xl); position: relative; overflow: hidden; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(160deg, hsl(var(--h) 55% 30%), hsl(var(--h) 60% 12%)); border: 1px solid rgb(255 255 255 / .08); }
-.hood__art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; transition: transform 1s var(--ease), opacity .5s; }
+.hoods__track { display: flex; gap: 24px; padding-inline: max(16px, (100vw - var(--container)) / 2); width: max-content; will-change: transform; backface-visibility: hidden; }
+.hood { width: 330px; height: 400px; flex: none; contain: layout paint; transform: translateZ(0); border-radius: var(--r-xl); position: relative; overflow: hidden; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(160deg, hsl(var(--h) 55% 30%), hsl(var(--h) 60% 12%)); border: 1px solid rgb(255 255 255 / .08); }
+.hood__art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; transition: transform .6s var(--ease), opacity .4s; }
 .hood::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 20%, rgb(2 44 34 / .92) 85%); }
 .hood > *:not(.hood__art) { position: relative; z-index: 2; }
 .hood:hover .hood__art { transform: scale(1.08); opacity: .75; }
