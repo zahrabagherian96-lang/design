@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<title>Laptop Scene</title>
+<style>
+  :root { --t: 0; --ry: -20deg; --rx: -14deg; --s: 1; --ty: 0px; --light: 1; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #030405; }
+  .frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #040507; }
+
+  /* ---------- room / back wall ---------- */
+  .wall { position: absolute; inset: 0; background:
+      radial-gradient(60% 36% at 50% 40%, rgba(16, 185, 129, calc(.30 * var(--light))) 0%, transparent 70%),
+      radial-gradient(90% 50% at 50% 38%, rgba(6, 78, 59, calc(.55 * var(--light))) 0%, transparent 75%),
+      linear-gradient(180deg, #050607 0%, #07090b 60%, #040506 100%); }
+  /* light bar behind the laptop */
+  .bar { position: absolute; left: 50%; top: 300px; width: 760px; height: 10px; transform: translateX(-50%); border-radius: 10px;
+         background: linear-gradient(90deg, transparent, #a7f3d0 18%, #ecfdf5 50%, #a7f3d0 82%, transparent);
+         opacity: var(--light); box-shadow: 0 0 40px 10px rgba(52, 211, 153, .55), 0 0 140px 60px rgba(16, 185, 129, .35); }
+  .halo { position: absolute; left: 50%; top: 640px; width: 1500px; height: 1100px; transform: translate(-50%, -50%);
+          background: radial-gradient(closest-side, rgba(52, 211, 153, .42), rgba(16, 185, 129, .16) 45%, transparent 75%);
+          filter: blur(20px); opacity: var(--light); }
+  .rays { position: absolute; left: 50%; top: 300px; width: 1600px; height: 1200px; transform: translateX(-50%);
+          background: conic-gradient(from 180deg at 50% 0%, transparent 0 140deg, rgba(110, 231, 183, .06) 150deg, transparent 158deg,
+                      rgba(110, 231, 183, .05) 172deg, transparent 180deg, rgba(110, 231, 183, .05) 188deg, transparent 196deg,
+                      rgba(110, 231, 183, .06) 210deg, transparent 220deg 360deg);
+          opacity: calc(.0 + var(--light) * .9); filter: blur(6px); }
+  .bokeh { position: absolute; inset: 0; }
+  .bokeh i { position: absolute; border-radius: 50%; filter: blur(var(--b)); background: var(--c); opacity: calc(var(--o) * var(--light)); }
+
+  /* ---------- desk ---------- */
+  .desk { position: absolute; left: -10%; right: -10%; top: 900px; bottom: 0; background:
+      radial-gradient(55% 30% at 50% 0%, rgba(52, 211, 153, calc(.22 * var(--light))), transparent 70%),
+      linear-gradient(180deg, #121417 0%, #0b0c0e 30%, #060708 100%); }
+  .desk::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(167, 243, 208, calc(.45 * var(--light))), transparent); }
+  .desk::after { content: ""; position: absolute; inset: 0; opacity: .5;
+      background: repeating-linear-gradient(178deg, rgba(255,255,255,.012) 0 2px, transparent 2px 7px); }
+
+  /* ---------- laptop (CSS 3D) ---------- */
+  .stage { position: absolute; inset: 0; perspective: 3400px; perspective-origin: 50% 32%; }
+  .rig { position: absolute; left: 50%; top: 1100px; width: 0; height: 0; transform-style: preserve-3d;
+         transform: translateY(var(--ty)) scale(var(--s)) rotateX(var(--rx)) rotateY(var(--ry)); }
+  .rig > * { position: absolute; transform-style: preserve-3d; }
+
+  /* lid: hinge at the origin, tilted back a little */
+  .lid { left: -460px; top: -600px; width: 920px; height: 600px; transform-origin: 50% 100%; transform: rotateX(8deg); }
+  .lid__front { position: absolute; inset: 0; border-radius: 22px 22px 6px 6px; background: #0b0c0e;
+                box-shadow: inset 0 0 0 2px #2a2d31, inset 0 0 0 4px #050506; }
+  .lid__back  { position: absolute; inset: 0; border-radius: 22px 22px 6px 6px; transform: translateZ(-9px);
+                background: linear-gradient(135deg, #3a3e44, #1c1e21 60%, #121315);
+                box-shadow: 0 0 80px 20px rgba(52, 211, 153, calc(.45 * var(--light))), 0 0 240px 80px rgba(16, 185, 129, calc(.25 * var(--light))); }
+  .lid__edge  { position: absolute; left: 0; right: 0; top: 0; height: 9px; transform-origin: 50% 0; transform: rotateX(90deg);
+                background: linear-gradient(90deg, #2b2e33, #6b7078 50%, #2b2e33); border-radius: 4px; }
+  .lid__side  { position: absolute; top: 18px; bottom: 0; width: 9px; transform-origin: 0 50%; background: #3b3f45; }
+  .lid__side--l { left: 0; transform: rotateY(90deg); }
+  .lid__side--r { right: -9px; transform: rotateY(90deg); background: linear-gradient(180deg, #8a9099, #4a4e55); }
+  .screen { position: absolute; left: 30px; top: 28px; width: 860px; height: 537.5px; overflow: hidden; border-radius: 4px; background: #000;
+            transform: translateZ(.5px); }
+  .screen img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .screen::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(115deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.03) 28%, transparent 42%, transparent 100%); }
+  .cam { position: absolute; left: 50%; top: 12px; width: 7px; height: 7px; margin-left: -3.5px; border-radius: 50%;
+         background: radial-gradient(circle at 35% 35%, #4b5563, #0b0c0e 70%); transform: translateZ(.6px); }
+  .chin { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font: 600 13px/1 system-ui, sans-serif;
+          letter-spacing: .3em; color: #3a3d42; transform: translateZ(.6px); }
+
+  /* base: lies flat, extends toward the viewer from the hinge */
+  .base { left: -480px; top: 0; width: 960px; height: 640px; transform-origin: 50% 0; transform: rotateX(90deg); }
+  .base__top { position: absolute; inset: 0; border-radius: 6px 6px 26px 26px;
+               background: linear-gradient(180deg, #2f3236 0%, #26292d 40%, #1f2125 100%);
+               box-shadow: inset 0 2px 0 rgba(255,255,255,.12), inset 0 -3px 0 rgba(0,0,0,.4); }
+  .keys { position: absolute; left: 70px; right: 70px; top: 46px; height: 300px; border-radius: 8px; background: #0e0f11;
+          box-shadow: inset 0 0 0 2px #17181b; padding: 10px; display: grid; grid-template-columns: repeat(15, 1fr); grid-auto-rows: 1fr; gap: 7px; }
+  .keys i { border-radius: 5px; background: linear-gradient(180deg, #1b1c1f, #141517);
+            box-shadow: 0 1px 0 rgba(255,255,255,.05) inset, 0 0 6px rgba(52,211,153,calc(.10 * var(--light))); }
+  .keys i.w2 { grid-column: span 2; } .keys i.sp { grid-column: span 7; }
+  .pad { position: absolute; left: 50%; top: 372px; width: 360px; height: 228px; margin-left: -180px; border-radius: 14px;
+         background: linear-gradient(180deg, #2b2e32, #24272b); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.07); }
+  .base__front { position: absolute; left: 14px; right: 14px; bottom: 0; height: 16px; transform-origin: 50% 100%; transform: rotateX(90deg);
+                 background: linear-gradient(180deg, #5e636b, #24272b); border-radius: 0 0 12px 12px; }
+  .base__side { position: absolute; top: 0; bottom: 18px; width: 16px; transform-origin: 100% 50%; background: linear-gradient(90deg, #1a1c1f, #4d525a); }
+  .base__side--l { left: -16px; transform: rotateY(90deg); }
+  .base__side--r { right: 0; transform-origin: 100% 50%; transform: rotateY(-90deg); background: linear-gradient(90deg, #6b7078, #33363b); }
+  .base__glow { position: absolute; left: 50%; top: 0; width: 800px; height: 360px; margin-left: -400px;
+                background: radial-gradient(closest-side, rgba(209, 250, 229, .14), transparent); }
+
+  /* soft contact shadow + screen light spilling on the desk */
+  .shadow { left: -560px; top: -10px; width: 1120px; height: 760px; transform-origin: 50% 0; transform: rotateX(90deg) translateZ(-1px);
+            background: radial-gradient(closest-side, rgba(0,0,0,.85), rgba(0,0,0,.4) 60%, transparent); filter: blur(18px); }
+  .spill { left: -700px; top: 0; width: 1400px; height: 900px; transform-origin: 50% 0; transform: rotateX(90deg) translateZ(-2px);
+           background: radial-gradient(50% 45% at 50% 0%, rgba(110, 231, 183, .16), transparent 80%); }
+
+  /* ---------- grade ---------- */
+  .dust { position: absolute; inset: 0; pointer-events: none; }
+  .dust i { position: absolute; width: var(--d); height: var(--d); border-radius: 50%; background: rgba(209, 250, 229, .7); filter: blur(.6px); }
+  .vignette { position: absolute; inset: 0; background: radial-gradient(75% 60% at 50% 48%, transparent 45%, rgba(0,0,0,.78) 100%); }
+  .grain { position: absolute; inset: -50%; opacity: .07; mix-blend-mode: overlay; }
+  .fade { position: absolute; inset: 0; background: #000; opacity: var(--black, 0); }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="wall"></div>
+  <div class="rays"></div>
+  <div class="halo"></div>
+  <div class="bar"></div>
+  <div class="bokeh" id="bokeh"></div>
+  <div class="desk"></div>
+
+  <div class="stage">
+    <div class="rig">
+      <div class="spill"></div>
+      <div class="shadow"></div>
+      <div class="base">
+        <div class="base__top">
+          <div class="base__glow"></div>
+          <div class="keys" id="keys"></div>
+          <div class="pad"></div>
+        </div>
+        <div class="base__front"></div>
+        <div class="base__side base__side--l"></div>
+        <div class="base__side base__side--r"></div>
+      </div>
+      <div class="lid">
+        <div class="lid__back"></div>
+        <div class="lid__edge"></div>
+        <div class="lid__side lid__side--l"></div>
+        <div class="lid__side lid__side--r"></div>
+        <div class="lid__front">
+          <span class="cam"></span>
+          <div class="screen"><img id="shot" alt=""></div>
+          <div class="chin">BIRJAND</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dust" id="dust"></div>
+  <div class="vignette"></div>
+  <svg class="grain" viewBox="0 0 200 200" preserveAspectRatio="none"><filter id="n"><feTurbulence id="turb" type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="1"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+  <div class="fade"></div>
+</div>
+
+<script>
+  // deterministic pseudo-random so every render is identical
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+
+  // keyboard
+  const keys = document.getElementById('keys');
+  const rows = [[15], [15], [14, 'w2'], [13, 'w2', 'w2'], [12, 'w2', 'w2'], [4, 'sp', 4]];
+  rows.forEach(r => {
+    if (r.length === 1) for (let i = 0; i < r[0]; i++) keys.append(document.createElement('i'));
+    else if (r[1] === 'sp') { for (let i = 0; i < r[0]; i++) keys.append(document.createElement('i')); const s = document.createElement('i'); s.className = 'sp'; keys.append(s); for (let i = 0; i < r[2]; i++) keys.append(document.createElement('i')); }
+    else { let n = 15; r.slice(1).forEach(c => { const k = document.createElement('i'); k.className = c; keys.append(k); n -= 2; }); for (let i = 0; i < n; i++) keys.append(document.createElement('i')); }
+  });
+
+  // background bokeh
+  const bokeh = document.getElementById('bokeh');
+  for (let i = 0; i < 18; i++) {
+    const b = document.createElement('i'), d = 20 + rnd() * 90;
+    Object.assign(b.style, { left: rnd() * 1080 + 'px', top: 120 + rnd() * 820 + 'px', width: d + 'px', height: d + 'px' });
+    b.style.setProperty('--b', 6 + rnd() * 14 + 'px');
+    b.style.setProperty('--o', .08 + rnd() * .22);
+    b.style.setProperty('--c', rnd() > .3 ? '#34d399' : '#fbbf24');
+    bokeh.append(b);
+  }
+
+  // floating dust in the light
+  const dust = document.getElementById('dust'), motes = [];
+  for (let i = 0; i < 46; i++) {
+    const m = document.createElement('i');
+    m.style.setProperty('--d', 1.5 + rnd() * 3.5 + 'px');
+    dust.append(m);
+    motes.push({ el: m, x: 140 + rnd() * 800, y: 250 + rnd() * 760, vx: (rnd() - .5) * 14, vy: -4 - rnd() * 10, ph: rnd() * 6.28, o: .15 + rnd() * .55 });
+  }
+
+  const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const root = document.documentElement.style, img = document.getElementById('shot'), turb = document.getElementById('turb');
+
+  // t: seconds, total: seconds, src: screen frame url
+  window.setFrame = async (t, total, src) => {
+    const p = ease(clamp(t / total));
+    root.setProperty('--ry', (-16 + 12 * p) + 'deg');         // slow orbit toward the front
+    root.setProperty('--rx', (-24 + 9 * p) + 'deg');          // camera lowers a touch
+    root.setProperty('--s', (0.80 + 0.12 * p).toFixed(4));     // slow push-in
+    root.setProperty('--ty', (0 - 40 * p) + 'px');
+    const on = ease(clamp((t - .15) / 1.1));                   // lights switch on
+    const flicker = t < 1.4 ? (Math.sin(t * 70) > .6 ? .55 : 1) : 1;
+    root.setProperty('--light', (on * flicker).toFixed(3));
+    root.setProperty('--black', clamp(1 - t / .5) + clamp((t - total + .6) / .6)); // fade in/out
+    motes.forEach(m => {
+      const x = m.x + m.vx * t + Math.sin(t * .8 + m.ph) * 12, y = m.y + m.vy * t;
+      m.el.style.transform = `translate(${x}px, ${y}px)`;
+      m.el.style.opacity = (m.o * (.6 + .4 * Math.sin(t * 1.7 + m.ph)) * on).toFixed(3);
+    });
+    turb.setAttribute('seed', Math.floor(t * 24) % 50);
+    if (src && img.getAttribute('src') !== src) { img.src = src; await img.decode().catch(() => {}); }
+  };
+</script>
+</body>
+</html>
