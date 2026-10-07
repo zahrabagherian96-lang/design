@@ -236,7 +236,7 @@
 .kpi b { font-family: var(--f-display); font-size: 30px; color: var(--ink); font-variant-numeric: tabular-nums; }
 .kpi .delta { font-size: 12.5px; color: var(--muted); }
 .kpi--warn { border-color: #EED8AC; background: #FFFCF4; }
-.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.panel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .queue { display: grid; gap: 12px; }
 .qitem { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 18px; display: grid; gap: 12px; }
 .qitem__head { display: flex; align-items: flex-start; gap: 12px; justify-content: space-between; flex-wrap: wrap; }
@@ -260,7 +260,7 @@
 .tbl td .who { display: flex; align-items: center; gap: 10px; }
 .tbl td .who img, .tbl td .who .avatar { width: 34px; height: 34px; font-size: 14px; }
 .hbars { display: grid; gap: 10px; }
-.hbar { display: grid; grid-template-columns: 140px 1fr 70px; gap: 12px; align-items: center; font-size: 14px; }
+.hbar { display: grid; grid-template-columns: 140px minmax(0, 1fr) 70px; gap: 12px; align-items: center; font-size: 14px; }
 .hbar__track { display: block; height: 12px; background: var(--tint); border-radius: 6px; overflow: hidden; }
 .hbar__track i { display: block; height: 100%; width: calc(var(--w) * 1%); background: var(--j-500); border-radius: 6px; }
 .hbar:first-child .hbar__track i { background: var(--j-700); }
@@ -358,9 +358,9 @@
 @media (max-width: 960px) {
   .listing { grid-template-columns: minmax(0, 1fr); }
   .listing__map { position: static; order: -1; }
-  .p-layout, .mag-top, .biz-head, .story, .contact-grid, .two-col, .panel-grid, .auth { grid-template-columns: 1fr; }
+  .p-layout, .mag-top, .biz-head, .story, .contact-grid, .two-col, .panel-grid, .auth { grid-template-columns: minmax(0, 1fr); }
   .side { position: static; }
-  .kyc, .admin, .dash-page, .legal { grid-template-columns: 1fr; }
+  .kyc, .admin, .dash-page, .legal { grid-template-columns: minmax(0, 1fr); }
   .steps-v { position: static; grid-auto-flow: column; overflow-x: auto; }
   .steps-v li { white-space: nowrap; }
   .admin-side { position: static; grid-auto-flow: column; overflow-x: auto; }
@@ -382,7 +382,7 @@
   .post-item p { display: none; }
   .kpis { grid-template-columns: 1fr 1fr; gap: 10px; }
   .kpi b { font-size: 24px; }
-  .hbar { grid-template-columns: 96px 1fr 56px; font-size: 13px; }
+  .hbar { grid-template-columns: 96px minmax(0, 1fr) 56px; font-size: 13px; }
   .form-card { padding: 20px 16px; }
   .prose { font-size: 17px; }
   .lightbox__nav { top: auto; bottom: 20px; transform: none; }
