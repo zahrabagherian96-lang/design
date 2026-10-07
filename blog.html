@@ -4,38 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>مجله | در بیرجند کجا؟</title>
-  <meta name="description" content="راهنمای سفر، غذا، سوغات و زندگی در بیرجند.">
-  <meta name="theme-color" content="#064E3B">
+  <meta name="description" content="راهنمای سفر، غذای محلی، سوغات و زندگی در بیرجند.">
+  <meta name="theme-color" content="#2C7F65">
   <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
 </head>
-<body data-page="blog" data-dark-hero="1">
+<body data-page="blog">
   <div id="layout-top"></div>
   <main id="main">
-    <section class="page-hero">
-      <div class="page-hero__bg" aria-hidden="true"><img src="assets/img/photos/sight-2.jpg" alt=""></div>
-      <div class="container">
-        <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span data-ico="chevron"></span><span aria-current="page">مجله</span></nav>
-        <div class="page-hero__row"><div><h1>مجله در بیرجند کجا</h1><p>راهنمای سفر، غذای محلی، سوغات و زندگی روزمره در بیرجند؛ نوشته‌شده با کمک همشهری‌ها.</p></div></div>
+    <div class="container">
+      <h1 class="sr-only">مجله در بیرجند کجا</h1>
+      <div class="mag-top" id="magTop"></div>
+      <div class="mag-body">
+        <div class="post-list" id="postList"></div>
+        <aside><div class="card"><h2>موضوع‌ها</h2><div class="topic-list" id="topics" role="group" aria-label="فیلتر موضوع"></div></div>
+          <div class="card"><h2>شما هم بنویسید</h2><p class="muted" style="margin-bottom:12px">تجربه یا راهنمایی درباره بیرجند دارید؟ برای تحریریه بفرستید.</p><a class="btn btn--secondary btn--block" href="contact.html">ارسال پیشنهاد مطلب</a></div></aside>
       </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <article class="post-feature reveal" id="feature"></article>
-        <div class="section__head"><h2 class="section__title" style="font-size:26px">تازه‌ترین مطالب</h2><div class="pills" id="postFilter" role="group" aria-label="فیلتر موضوع"></div></div>
-        <div class="posts" id="posts"></div>
-      </div>
-    </section>
+    </div>
   </main>
   <div id="layout-bottom"></div>
-
   <script src="assets/vendor/gsap.min.js"></script>
-  <script src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script src="assets/vendor/Flip.min.js"></script>
   <script src="assets/js/icons.js"></script>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/core.js"></script>

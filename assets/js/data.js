@@ -4,29 +4,29 @@
 window.BK = window.BK || {};
 
 BK.categories = [
-  { id: 'food',     name: 'رستوران',        icon: 'utensils',    count: 184, hue: 18,  desc: 'غذای محلی، کباب، فست‌فود و سفره‌خانه‌ها' },
-  { id: 'cafe',     name: 'کافه',           icon: 'coffee',      count: 96,  hue: 30,  desc: 'کافه‌های دنج، قهوه تخصصی و کافه‌کتاب' },
-  { id: 'hotel',    name: 'هتل و اقامتگاه', icon: 'bed',         count: 41,  hue: 200, desc: 'هتل، بوم‌گردی و خانه‌های اجاره‌ای' },
-  { id: 'sight',    name: 'جاذبه گردشگری',  icon: 'landmark',    count: 58,  hue: 160, desc: 'باغ‌ها، قلعه‌ها و طبیعت اطراف شهر' },
-  { id: 'health',   name: 'پزشک و درمان',   icon: 'stethoscope', count: 312, hue: 190, desc: 'کلینیک، دندانپزشک، درمانگاه و داروخانه' },
-  { id: 'beauty',   name: 'آرایش و زیبایی', icon: 'scissors',    count: 227, hue: 330, desc: 'سالن‌های زیبایی و آرایشگاه‌ها' },
-  { id: 'shop',     name: 'فروشگاه',        icon: 'bag',         count: 540, hue: 260, desc: 'پوشاک، سوپرمارکت و خرید روزانه' },
-  { id: 'souvenir', name: 'سوغات بیرجند',   icon: 'gift',        count: 73,  hue: 350, desc: 'زعفران، زرشک، عناب و صنایع‌دستی' },
-  { id: 'sport',    name: 'باشگاه ورزشی',   icon: 'dumbbell',    count: 88,  hue: 90,  desc: 'بدنسازی، استخر و سالن‌های ورزشی' },
-  { id: 'edu',      name: 'آموزشگاه',       icon: 'graduation',  count: 146, hue: 220, desc: 'زبان، کنکور، هنر و فضای مطالعه' },
-  { id: 'car',      name: 'خدمات خودرو',    icon: 'car',         count: 201, hue: 45,  desc: 'تعمیرگاه، کارواش و لوازم یدکی' },
-  { id: 'home',     name: 'خدمات منزل',     icon: 'wrench',      count: 129, hue: 140, desc: 'تعمیرات، لوله‌کشی و دکوراسیون' }
+  { id: 'food',     name: 'رستوران',        icon: 'utensils',    count: 184, hue: 18,  desc: 'غذای محلی، کباب، فست‌فود و سفره‌خانه‌ها', subs: ['سنتی و محلی','کبابی','فست‌فود','سفره‌خانه','بیرون‌بر'] },
+  { id: 'cafe',     name: 'کافه',           icon: 'coffee',      count: 96,  hue: 30,  desc: 'کافه‌های دنج، قهوه تخصصی و کافه‌کتاب', subs: ['کافه‌کتاب','قهوه تخصصی','صبحانه','فضای باز'] },
+  { id: 'hotel',    name: 'هتل و اقامتگاه', icon: 'bed',         count: 41,  hue: 200, desc: 'هتل، بوم‌گردی و خانه‌های اجاره‌ای', subs: ['هتل','بوم‌گردی','خانه اجاره‌ای'] },
+  { id: 'sight',    name: 'جاذبه گردشگری',  icon: 'landmark',    count: 58,  hue: 160, desc: 'باغ‌ها، قلعه‌ها و طبیعت اطراف شهر', subs: ['تاریخی','طبیعت','موزه','پارک'] },
+  { id: 'health',   name: 'پزشک و درمان',   icon: 'stethoscope', count: 312, hue: 190, desc: 'کلینیک، دندانپزشک، درمانگاه و داروخانه', subs: ['دندانپزشکی','درمانگاه','داروخانه','آزمایشگاه'] },
+  { id: 'beauty',   name: 'آرایش و زیبایی', icon: 'scissors',    count: 227, hue: 330, desc: 'سالن‌های زیبایی و آرایشگاه‌ها', subs: ['سالن بانوان','آرایشگاه مردانه','عروس'] },
+  { id: 'shop',     name: 'فروشگاه',        icon: 'bag',         count: 540, hue: 260, desc: 'پوشاک، سوپرمارکت و خرید روزانه', subs: ['پوشاک','سوپرمارکت','لوازم خانگی'] },
+  { id: 'souvenir', name: 'سوغات بیرجند',   icon: 'gift',        count: 73,  hue: 350, desc: 'زعفران، زرشک، عناب و صنایع‌دستی', subs: ['زعفران','زرشک و عناب','صنایع‌دستی','خشکبار'] },
+  { id: 'sport',    name: 'باشگاه ورزشی',   icon: 'dumbbell',    count: 88,  hue: 90,  desc: 'بدنسازی، استخر و سالن‌های ورزشی', subs: ['بدنسازی','استخر','سالن چندمنظوره'] },
+  { id: 'edu',      name: 'آموزشگاه',       icon: 'graduation',  count: 146, hue: 220, desc: 'زبان، کنکور، هنر و فضای مطالعه', subs: ['زبان','کنکور','هنر','فضای مطالعه'] },
+  { id: 'car',      name: 'خدمات خودرو',    icon: 'car',         count: 201, hue: 45,  desc: 'تعمیرگاه، کارواش و لوازم یدکی', subs: ['تعمیرگاه','کارواش','لوازم یدکی'] },
+  { id: 'home',     name: 'خدمات منزل',     icon: 'wrench',      count: 129, hue: 140, desc: 'تعمیرات، لوله‌کشی و دکوراسیون', subs: ['تأسیسات','برق‌کاری','دکوراسیون'] }
 ];
 
 BK.hoods = [
-  { id: 'modares',     name: 'مدرس',      places: 412, tag: 'مرکز شهر و بازار',      desc: 'قلب تجاری بیرجند؛ بازار سنتی، ارگ کلاه‌فرنگی و مغازه‌های سوغات در همین محدوده‌اند.', photo: 'sight-1.jpg', x: 52, y: 46 },
-  { id: 'moallem',     name: 'معلم',       places: 356, tag: 'کافه‌ها و رستوران‌ها',   desc: 'خیابانی پرجنب‌وجوش با کافه‌های دانشجویی، رستوران‌ها و فروشگاه‌های پوشاک.', photo: 'cafe-8.jpg', x: 38, y: 34 },
-  { id: 'ghaffari',    name: 'غفاری',      places: 289, tag: 'پزشکان و کلینیک‌ها',     desc: 'مطب‌ها، کلینیک‌های تخصصی و داروخانه‌های شبانه‌روزی بیشتر در این محله‌اند.', photo: 'health-1.jpg', x: 66, y: 30 },
-  { id: 'montazeri',   name: 'منتظری',     places: 241, tag: 'فروشگاه‌های محلی',       desc: 'محله‌ای مسکونی با خدمات روزمره، آموزشگاه‌ها و تعمیرگاه‌های معتبر.', photo: 'edu-1.jpg', x: 30, y: 60 },
-  { id: 'mehrshahr',   name: 'مهرشهر',     places: 198, tag: 'خانواده‌محور و آرام',     desc: 'آرام و سرسبز؛ مناسب خانواده‌ها با فروشگاه‌های بزرگ و سالن‌های زیبایی.', photo: 'shop-2.jpg', x: 74, y: 62 },
-  { id: 'sajjadshahr', name: 'سجادشهر',    places: 176, tag: 'ورزشی و آموزشی',          desc: 'نزدیک دانشگاه؛ باشگاه‌های ورزشی، کتابخانه‌ها و کارواش‌ها.', photo: 'sport-1.jpg', x: 18, y: 42 },
-  { id: 'shokatabad',  name: 'شوکت‌آباد',  places: 134, tag: 'باغ‌ها و طبیعت',          desc: 'دامنه کوه باقران و مسیر بند دره؛ هوای خنک و اقامتگاه‌های خوش‌منظره.', photo: 'sight-5.jpg', x: 58, y: 78 },
-  { id: 'amirabad',    name: 'امیرآباد',   places: 121, tag: 'تاریخی و اصیل',           desc: 'بافت تاریخی شهر با باغ اکبریه، قلعه بیرجند و خانه‌های قدیمی خشتی.', photo: 'sight-1.jpg', x: 44, y: 18 }
+  { id: 'modares',     name: 'مدرس',      places: 412, tag: 'مرکز شهر و بازار',      desc: 'قلب تجاری بیرجند؛ بازار سنتی، ارگ کلاه‌فرنگی و مغازه‌های سوغات در همین محدوده‌اند.', photo: 'sight-1.jpg', icon: 'bag', mx: 510, my: 330 },
+  { id: 'moallem',     name: 'معلم',       places: 356, tag: 'کافه‌ها و رستوران‌ها',   desc: 'خیابانی پرجنب‌وجوش با کافه‌های دانشجویی، رستوران‌ها و فروشگاه‌های پوشاک.', photo: 'cafe-8.jpg', icon: 'coffee', mx: 335, my: 245 },
+  { id: 'ghaffari',    name: 'غفاری',      places: 289, tag: 'پزشکان و کلینیک‌ها',     desc: 'مطب‌ها، کلینیک‌های تخصصی و داروخانه‌های شبانه‌روزی بیشتر در این محله‌اند.', photo: 'health-1.jpg', icon: 'stethoscope', mx: 690, my: 235 },
+  { id: 'montazeri',   name: 'منتظری',     places: 241, tag: 'فروشگاه‌های محلی',       desc: 'محله‌ای مسکونی با خدمات روزمره، آموزشگاه‌ها و تعمیرگاه‌های معتبر.', photo: 'edu-1.jpg', icon: 'graduation', mx: 320, my: 430 },
+  { id: 'mehrshahr',   name: 'مهرشهر',     places: 198, tag: 'خانواده‌محور و آرام',     desc: 'آرام و سرسبز؛ مناسب خانواده‌ها با فروشگاه‌های بزرگ و سالن‌های زیبایی.', photo: 'shop-2.jpg', icon: 'home', mx: 790, my: 420 },
+  { id: 'sajjadshahr', name: 'سجادشهر',    places: 176, tag: 'ورزشی و آموزشی',          desc: 'نزدیک دانشگاه؛ باشگاه‌های ورزشی، کتابخانه‌ها و کارواش‌ها.', photo: 'sport-1.jpg', icon: 'dumbbell', mx: 160, my: 290 },
+  { id: 'shokatabad',  name: 'شوکت‌آباد',  places: 134, tag: 'باغ‌ها و طبیعت',          desc: 'دامنه کوه باقران و مسیر بند دره؛ هوای خنک و اقامتگاه‌های خوش‌منظره.', photo: 'sight-5.jpg', icon: 'mountain', mx: 610, my: 505 },
+  { id: 'amirabad',    name: 'امیرآباد',   places: 121, tag: 'تاریخی و اصیل',           desc: 'بافت تاریخی شهر با باغ اکبریه، قلعه بیرجند و خانه‌های قدیمی خشتی.', photo: 'sight-1.jpg', icon: 'landmark', mx: 560, my: 140 }
 ];
 
 const P = (id, o) => Object.assign({ id, open: true, verified: true, price: 2 }, o);
@@ -177,14 +177,14 @@ BK.places = [
 ];
 
 BK.reviews = [
-  { name: 'مریم ر.', pid: 1, rating: 5, text: 'عصر رفتیم، نور غروب روی عمارت فوق‌العاده بود. حتماً کفش راحت بپوشید.', ago: '۲ ساعت پیش' },
-  { name: 'علی ح.', pid: 5, rating: 5, text: 'شولی‌اش دقیقاً طعم دست‌پخت مادربزرگ رو داشت. برخورد پرسنل عالی.', ago: '۵ ساعت پیش' },
-  { name: 'نگار م.', pid: 8, rating: 4, text: 'دمنوش عناب رو حتماً امتحان کنید. فقط آخر هفته شلوغه.', ago: 'دیروز' },
-  { name: 'حسین ک.', pid: 23, rating: 5, text: 'برای تهران سفارش دادم، سه روزه رسید و بسته‌بندی خیلی شیک بود.', ago: 'دیروز' },
-  { name: 'زهرا ب.', pid: 13, rating: 5, text: 'دکتر خیلی با حوصله بچه‌ام رو معاینه کرد. نوبت آنلاین هم دقیق بود.', ago: '۲ روز پیش' },
-  { name: 'رضا ن.', pid: 3, rating: 4, text: 'منظره شهر از بالا بی‌نظیره. کاش تابلوهای راهنمای بیشتری داشت.', ago: '۳ روز پیش' },
-  { name: 'فاطمه ع.', pid: 15, rating: 5, text: 'تمیز، دقیق و وقت‌شناس. بالاخره یه سالن خوب تو مهرشهر پیدا کردم.', ago: '۴ روز پیش' },
-  { name: 'امیر س.', pid: 11, rating: 4, text: 'صبحانه متنوع و اتاق‌ها تمیز. ویو کوه از پنجره عالی بود.', ago: 'هفته پیش' },
+  { name: 'مریم ر.', photo: 'person-1.jpg', pid: 1, rating: 5, text: 'عصر رفتیم، نور غروب روی عمارت فوق‌العاده بود. حتماً کفش راحت بپوشید.', ago: '۲ ساعت پیش' },
+  { name: 'علی ح.', photo: 'person-2.jpg', pid: 5, rating: 5, text: 'شولی‌اش دقیقاً طعم دست‌پخت مادربزرگ رو داشت. برخورد پرسنل عالی.', ago: '۵ ساعت پیش' },
+  { name: 'نگار م.', photo: 'person-3.jpg', pid: 8, rating: 4, text: 'دمنوش عناب رو حتماً امتحان کنید. فقط آخر هفته شلوغه.', ago: 'دیروز' },
+  { name: 'حسین ک.', photo: 'person-4.jpg', pid: 23, rating: 5, text: 'برای تهران سفارش دادم، سه روزه رسید و بسته‌بندی خیلی شیک بود.', ago: 'دیروز' },
+  { name: 'زهرا ب.', photo: 'person-5.jpg', pid: 13, rating: 5, text: 'دکتر خیلی با حوصله بچه‌ام رو معاینه کرد. نوبت آنلاین هم دقیق بود.', ago: '۲ روز پیش' },
+  { name: 'رضا ن.', photo: 'person-6.jpg', pid: 3, rating: 4, text: 'منظره شهر از بالا بی‌نظیره. کاش تابلوهای راهنمای بیشتری داشت.', ago: '۳ روز پیش' },
+  { name: 'فاطمه ع.', photo: 'person-7.jpg', pid: 15, rating: 5, text: 'تمیز، دقیق و وقت‌شناس. بالاخره یه سالن خوب تو مهرشهر پیدا کردم.', ago: '۴ روز پیش' },
+  { name: 'امیر س.', photo: 'person-8.jpg', pid: 11, rating: 4, text: 'صبحانه متنوع و اتاق‌ها تمیز. ویو کوه از پنجره عالی بود.', ago: 'هفته پیش' },
   { name: 'سمیه ق.', pid: 12, rating: 5, text: 'حیاط و حوض خونه آدم رو یاد خونه مادربزرگ می‌ندازه. صبحانه محلی‌اش عالی بود.', ago: 'هفته پیش' },
   { name: 'محسن د.', pid: 27, rating: 5, text: 'کولر رو همون روز سرویس کردن، قیمت هم دقیقاً همون چیزی بود که گفتن.', ago: 'هفته پیش' }
 ];
@@ -275,6 +275,27 @@ BK.team = [
   { name: 'نیلوفر شریفی', role: 'مدیر محتوا', photo: 'person-3.jpg' },
   { name: 'آرش نوری', role: 'مسئول ارتباط با کسب‌وکارها', photo: 'person-4.jpg' }
 ];
+
+/* ---- seed data for the admin panel (demo) ---- */
+BK.seedUsers = [
+  { name: 'مریم رضایی', mobile: '09151230001', since: '۱۴ مهر ۱۴۰۵', photo: 'person-1.jpg', reviews: 12 },
+  { name: 'علی حسینی', mobile: '09151230002', since: '۱۴ مهر ۱۴۰۵', photo: 'person-2.jpg', reviews: 4 },
+  { name: 'نگار محمدی', mobile: '09151230003', since: '۱۳ مهر ۱۴۰۵', photo: 'person-3.jpg', reviews: 7 },
+  { name: 'حسین کاظمی', mobile: '09151230004', since: '۱۲ مهر ۱۴۰۵', photo: 'person-4.jpg', reviews: 1 },
+  { name: 'زهرا باقری', mobile: '09151230005', since: '۱۲ مهر ۱۴۰۵', photo: 'person-5.jpg', reviews: 3 },
+  { name: 'رضا نیکو', mobile: '09151230006', since: '۱۱ مهر ۱۴۰۵', photo: 'person-6.jpg', reviews: 9 }
+];
+BK.seedPendingReviews = [
+  { id: 's1', name: 'حمید صادقی', mobile: '09151230011', pid: 8, rating: 3, text: 'قهوه خوب بود ولی سفارش ما حدود بیست دقیقه طول کشید تا آماده بشه.', ago: '۲ ساعت پیش', status: 'pending' },
+  { id: 's2', name: 'سمانه رحیمی', mobile: '09151230012', pid: 13, rating: 5, text: 'برای ایمپلنت مراجعه کردم، توضیحات دکتر کامل بود و هزینه‌ها از اول شفاف گفته شد.', ago: '۵ ساعت پیش', status: 'pending' },
+  { id: 's3', name: 'کاربر ناشناس', mobile: '09151230013', pid: 5, rating: 1, text: 'برای تخفیف بیشتر به پیج ما در اینستاگرام سر بزنید!!!', ago: 'دیروز', status: 'pending' }
+];
+BK.seedPendingBiz = [
+  { id: 'b1', name: 'نانوایی سنتی گندم', cat: 'food', hood: 'montazeri', address: 'خیابان منتظری، منتظری ۷', owner: 'محمد نوری', nationalId: '0640000001', licenseNo: '۱۴۰۵۰۲۱۱۸', mobile: '09151230021', ts: '۱۴ مهر ۱۴۰۵', status: 'pending', docs: ['کارت ملی', 'جواز کسب'] },
+  { id: 'b2', name: 'گالری صنایع‌دستی ترمه', cat: 'souvenir', hood: 'modares', address: 'بازار سنتی، راسته هنر', owner: 'لیلا امیری', nationalId: '0640000002', licenseNo: '۱۴۰۴۱۱۰۰۷', mobile: '09151230022', ts: '۱۳ مهر ۱۴۰۵', status: 'pending', docs: ['کارت ملی', 'جواز کسب'] }
+];
+BK.seedViews = { 'index.html': 18420, 'search.html': 9610, 'place.html': 15230, 'categories.html': 4120, 'hoods.html': 2380, 'blog.html': 3150, 'article.html': 5470, 'business.html': 1890, 'login.html': 2260, 'about.html': 760, 'contact.html': 540 };
+BK.pageNames = { 'index.html': 'صفحه اصلی', 'search.html': 'کاوش و جستجو', 'place.html': 'صفحه کسب‌وکارها', 'categories.html': 'دسته‌بندی‌ها', 'hoods.html': 'محله‌ها', 'blog.html': 'مجله', 'article.html': 'مطالب مجله', 'business.html': 'ثبت کسب‌وکار', 'login.html': 'ورود', 'about.html': 'درباره ما', 'contact.html': 'تماس', 'profile.html': 'پروفایل', 'admin.html': 'پنل مدیریت', 'rules.html': 'قوانین', 'privacy.html': 'حریم خصوصی', 'careers.html': 'فرصت‌های شغلی', 'dashboard.html': 'داشبورد کسب‌وکار', '404.html': 'صفحه ۴۰۴' };
 
 BK.catById = id => BK.categories.find(c => c.id === id);
 BK.hoodById = id => BK.hoods.find(h => h.id === id);

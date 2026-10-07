@@ -4,58 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>کاوش مکان‌ها | در بیرجند کجا؟</title>
-  <meta name="description" content="جستجو و فیلتر رستوران‌ها، کافه‌ها، پزشکان و کسب‌وکارهای بیرجند بر اساس محله، امتیاز و قیمت.">
-  <meta name="theme-color" content="#064E3B">
+  <meta name="description" content="جستجو در کسب‌وکارهای بیرجند با فیلتر دسته، محله، امتیاز و قیمت، همراه با نقشه.">
+  <meta name="theme-color" content="#2C7F65">
   <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
 </head>
-<body data-page="search" data-dark-hero="1">
+<body data-page="search">
   <div id="layout-top"></div>
   <main id="main">
-    <section class="page-hero">
-      <div class="page-hero__bg" aria-hidden="true"><img src="assets/img/photos/cafe-1.jpg" alt=""></div>
-      <div class="container">
-        <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span data-ico="chevron"></span><span aria-current="page">کاوش</span></nav>
-        <div class="page-hero__row"><div><h1><span id="resTitle">همه مکان‌های بیرجند</span></h1><p><span id="resLead">با فیلترها نتیجه را دقیق‌تر کنید.</span></p></div></div>
-      </div>
-    </section>
-    <div class="container search-layout" id="resTop">
-      <aside class="filters" id="filters" aria-label="فیلترها">
-        <div class="filters__head"><h2>فیلترها</h2><button class="icon-btn filters__close" id="filtersClose" aria-label="بستن فیلترها"><span data-ico="x"></span></button></div>
-        <div class="fgroup"><b>دسته‌بندی</b><div id="fCats"></div></div>
-        <div class="fgroup"><label for="fHood"><b>محله</b></label><select class="select" id="fHood"></select></div>
-        <div class="fgroup"><b>حداقل امتیاز</b><div id="fRating"></div></div>
-        <div class="fgroup"><b>سطح قیمت</b><div class="pills" id="fPrice"></div></div>
-        <div class="fgroup">
-          <label class="switch">فقط مکان‌های باز<input type="checkbox" id="fOpen"></label>
-          <label class="switch">فقط تأییدشده‌ها<input type="checkbox" id="fVerified"></label>
-        </div>
-      </aside>
-      <section class="results" aria-labelledby="count">
-        <form class="q-box" id="sqForm" role="search"><span data-ico="search"></span><label for="sq" class="sr-only">جستجو</label><input type="search" id="sq" placeholder="نام مکان، غذا، خدمت یا ویژگی…" autocomplete="off"><button class="btn btn--primary btn--sm">جستجو</button></form>
-        <div class="results-bar">
-          <h2 id="count" aria-live="polite"></h2>
-          <button class="btn btn--ghost btn--sm filter-toggle" id="filterToggle"><span data-ico="filter"></span>فیلترها</button>
-          <label class="sr-only" for="sort">مرتب‌سازی</label>
-          <select class="select" id="sort"><option value="rec">پیشنهادی</option><option value="rating">بالاترین امتیاز</option><option value="reviews">بیشترین نظر</option><option value="cheap">اقتصادی‌ترین</option></select>
-          <div class="seg" id="view" role="group" aria-label="نحوه نمایش"><button type="button" data-view="grid" aria-pressed="true" aria-label="نمایش شبکه‌ای"><span data-ico="grid"></span></button><button type="button" data-view="list" aria-pressed="false" aria-label="نمایش فهرستی"><span data-ico="list"></span></button></div>
-        </div>
+    <section class="page-head"><div class="container"><div id="lCrumbs"></div><div class="page-head__row"><div><h1 id="lTitle">همه مکان‌های بیرجند</h1><p id="lLead"></p></div></div><div class="active-chips" id="subs" style="margin:14px 0 0"></div></div></section>
+    <div class="filterbar"><div class="container" role="group" aria-label="فیلترها">
+      <label class="sr-only" for="fCat">دسته</label><select class="select" id="fCat"></select>
+      <label class="sr-only" for="fHood">محله</label><select class="select" id="fHood"></select>
+      <label class="sr-only" for="fRating">امتیاز</label><select class="select" id="fRating"><option value="0">هر امتیازی</option><option value="4.5">۴.۵ به بالا</option><option value="4">۴ به بالا</option><option value="3.5">۳.۵ به بالا</option></select>
+      <label class="sr-only" for="fPrice">قیمت</label><select class="select" id="fPrice"><option value="0">هر قیمتی</option><option value="1">اقتصادی</option><option value="2">تا متوسط</option><option value="3">تا بالا</option></select>
+      <span class="sep"></span>
+      <button class="chip" id="fOpen" aria-pressed="false"><span data-ico="clock"></span>الان باز است</button>
+      <button class="chip" id="fVerified" aria-pressed="false"><span data-ico="badge"></span>تأییدشده</button>
+    </div></div>
+    <div class="container listing">
+      <section aria-labelledby="count">
+        <div class="listing__head"><label class="q-inline"><span data-ico="search"></span><span class="sr-only">جستجو در نتایج</span><input type="search" id="sq" placeholder="جستجو در نام، خدمات یا ویژگی…"></label><h2 id="count" aria-live="polite"></h2><label class="sr-only" for="sort">مرتب‌سازی</label><select class="select" id="sort"><option value="rec">مرتبط‌ترین</option><option value="rating">بالاترین امتیاز</option><option value="reviews">بیشترین نظر</option><option value="cheap">اقتصادی‌ترین</option></select></div>
         <div class="active-chips" id="chips"></div>
-        <div class="place-grid" id="results"></div>
-        <div class="no-results" id="noRes" hidden><span data-ico="search"></span><h3>مکانی با این فیلترها پیدا نشد</h3><p>چند فیلتر را بردارید یا عبارت کوتاه‌تری جستجو کنید.</p><button class="btn btn--primary" id="noResClear">پاک کردن همه فیلترها</button></div>
+        <div class="lrows" id="rows"></div>
+        <div class="empty-state" id="noRes" hidden><span data-ico="search"></span><h3>مکانی با این فیلترها پیدا نشد</h3><p>چند فیلتر را بردارید یا عبارت کوتاه‌تری بنویسید.</p><button class="btn btn--primary" id="noResClear">پاک کردن فیلترها</button></div>
         <div class="pager" id="pager"></div>
       </section>
+      <aside class="listing__map" aria-label="نقشه نتایج"><div id="listMap"></div></aside>
     </div>
   </main>
   <div id="layout-bottom"></div>
-
   <script src="assets/vendor/gsap.min.js"></script>
-  <script src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script src="assets/vendor/Flip.min.js"></script>
   <script src="assets/js/icons.js"></script>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/core.js"></script>

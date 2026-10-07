@@ -3,44 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>محله‌های بیرجند | در بیرجند کجا؟</title>
-  <meta name="description" content="محله‌های بیرجند را روی نقشه ببینید و بهترین مکان‌های هر محله را پیدا کنید.">
-  <meta name="theme-color" content="#064E3B">
+  <title>محله‌ها و نقشه | در بیرجند کجا؟</title>
+  <meta name="description" content="نقشه بیرجند با همه مکان‌ها و معرفی محله‌ها.">
+  <meta name="theme-color" content="#2C7F65">
   <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
 </head>
-<body data-page="hoods" data-dark-hero="1">
+<body data-page="hoods">
   <div id="layout-top"></div>
   <main id="main">
-    <section class="page-hero">
-      <div class="page-hero__bg" aria-hidden="true"><img src="assets/img/photos/sight-3.jpg" alt=""></div>
-      <div class="container">
-        <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span data-ico="chevron"></span><span aria-current="page">محله‌ها</span></nav>
-        <div class="page-hero__row"><div><h1>بیرجند، محله به محله</h1><p>روی هر محله در نقشه بزن تا ویژگی‌ها و محبوب‌ترین مکان‌هایش را ببینی.</p></div></div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container hood-map-wrap">
-        <div class="hood-map reveal"><svg id="hoodMap" viewBox="0 0 500 400" role="group" aria-label="نقشه نمادین محله‌های بیرجند"></svg><p class="muted" style="font-size:13px;margin-top:8px">نقشه نمادین است و موقعیت دقیق محله‌ها را نشان نمی‌دهد.</p></div>
-        <div class="hood-info" id="hoodInfo" aria-live="polite"></div>
-      </div>
-    </section>
-    <section class="section section--tint">
-      <div class="container">
-        <div class="section__head"><div><span class="kicker">۸ محله پرطرفدار</span><h2 class="section__title split">همه محله‌ها</h2></div></div>
-        <div class="hood-cards" id="hoodCards"></div>
-      </div>
-    </section>
+    <section class="page-head"><div class="container">
+      <nav class="crumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span data-ico="chevron"></span><span aria-current="page">محله‌ها و نقشه</span></nav>
+      <div class="page-head__row"><div><h1>بیرجند روی نقشه</h1><p>روی هر نشانگر بزنید تا کارت مکان باز شود. فهرست کنار نقشه هم با فیلتر دسته‌ها هماهنگ است.</p></div></div>
+    </div></section>
+    <section class="section" style="padding-top:32px"><div class="container"><div id="fullMap"></div></div></section>
+    <section class="section section--tint"><div class="container">
+      <div class="sec-head"><div><span class="eyebrow">محله به محله</span><h2 class="sec-title">محله‌های بیرجند</h2></div></div>
+      <div class="hood-grid" id="hoodGrid"></div>
+    </div></section>
   </main>
   <div id="layout-bottom"></div>
-
   <script src="assets/vendor/gsap.min.js"></script>
-  <script src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script src="assets/vendor/Flip.min.js"></script>
   <script src="assets/js/icons.js"></script>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/core.js"></script>

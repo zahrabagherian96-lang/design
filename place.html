@@ -4,54 +4,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>مکان | در بیرجند کجا؟</title>
-  <meta name="description" content="اطلاعات، عکس‌ها، ساعت کاری و نظرات کاربران درباره کسب‌وکارهای بیرجند.">
-  <meta name="theme-color" content="#064E3B">
+  <meta name="description" content="عکس‌ها، نقشه، ساعت کاری و نظرات تأییدشده کاربران.">
+  <meta name="theme-color" content="#2C7F65">
   <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body data-page="place">
   <div id="layout-top"></div>
   <main id="main">
-    <div class="container" id="placePage">
-      <section class="p-hero">
-        <div id="crumbs"></div>
-        <div class="gallery" id="gallery"></div>
-      </section>
-      <div class="p-main">
-        <div>
-          <div class="p-title" id="pTitle"></div>
-          <p class="p-desc" id="pDesc"></p>
-          <div class="tags" id="pTags"></div>
-          <div style="height:32px"></div>
-          <section class="card reveal" aria-labelledby="svH"><h2 id="svH">خدمات و قیمت‌ها</h2><ul class="services" id="pServices"></ul><p class="muted" style="font-size:13px;margin-top:10px">قیمت‌ها نمونه‌اند؛ پیش از مراجعه از خود کسب‌وکار بپرسید.</p></section>
-          <section class="card reveal" aria-labelledby="sumH"><h2 id="sumH">امتیاز کاربران</h2><div class="summary" id="pSummary"></div></section>
-          <section class="card" aria-labelledby="rvH">
-            <div class="section__head" style="margin-bottom:18px;align-items:center"><h2 id="rvH" style="margin:0">نظرات کاربران</h2><button class="btn btn--primary btn--sm magnetic" id="pReviewBtn" data-open-review><span data-ico="message"></span>نوشتن نظر</button></div>
-            <div class="p-reviews" id="pReviews"></div>
-          </section>
-        </div>
-        <aside class="side">
-          <section class="card" aria-label="اطلاعات تماس" id="pInfo"></section>
-          <section class="card"><h2>مکان‌های مشابه</h2><div class="similar" id="pSimilar"></div></section>
-        </aside>
+    <div class="container p-top"><div id="crumbs"></div><div class="p-gallery" id="gallery"></div></div>
+    <div class="container p-layout">
+      <div>
+        <div class="p-head" id="pHead"></div>
+        <p class="p-desc" id="pDesc"></p>
+        <div class="tags" id="pTags"></div>
+        <div style="height:28px"></div>
+        <section class="card reveal" aria-labelledby="svH"><h2 id="svH">خدمات و قیمت‌ها</h2><ul class="services" id="pServices"></ul><p class="hint" style="margin-top:8px">قیمت‌ها نمونه‌اند؛ پیش از مراجعه از خود کسب‌وکار بپرسید.</p></section>
+        <section class="card reveal" aria-labelledby="sumH"><h2 id="sumH">امتیاز کاربران</h2><div class="summary" id="pSummary"></div></section>
+        <section class="card" aria-labelledby="rvH">
+          <div class="sec-head" style="margin-bottom:16px;align-items:center"><h2 id="rvH" style="margin:0;font-family:var(--f-body);font-size:18px;font-weight:800">نظرات کاربران تأییدشده</h2><button class="btn btn--primary btn--sm" id="pReviewBtn" data-open-review><span data-ico="edit"></span>نوشتن نظر</button></div>
+          <div class="p-reviews" id="pReviews"></div>
+        </section>
       </div>
+      <aside class="side">
+        <section class="card" id="pInfo" aria-label="اطلاعات تماس و نقشه"></section>
+        <section class="card"><h2>مکان‌های مشابه</h2><div id="pSimilar"></div></section>
+      </aside>
     </div>
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="گالری عکس" hidden>
       <div class="lightbox__bar"><span id="lbCount"></span><button class="icon-btn" id="lbClose" aria-label="بستن گالری"><span data-ico="x"></span></button></div>
       <img id="lbImg" alt="">
-      <button class="icon-btn lightbox__nav lightbox__prev" id="lbPrev" aria-label="عکس قبلی"><span data-ico="chevron"></span></button>
+      <button class="icon-btn lightbox__nav lightbox__prev" id="lbPrev" aria-label="عکس قبلی"><span data-ico="chevron" class="flip"></span></button>
       <button class="icon-btn lightbox__nav lightbox__next" id="lbNext" aria-label="عکس بعدی"><span data-ico="chevron"></span></button>
     </div>
   </main>
   <div id="layout-bottom"></div>
-
   <script src="assets/vendor/gsap.min.js"></script>
-  <script src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script src="assets/vendor/Flip.min.js"></script>
   <script src="assets/js/icons.js"></script>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/core.js"></script>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>پنل مدیریت | در بیرجند کجا؟</title>
+  <meta name="description" content="پنل مدیریت: تأیید کسب‌وکارها و نظرات، کاربران، آمار و دسته‌بندی‌ها.">
+  <meta name="theme-color" content="#2C7F65">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="admin">
+  <div id="layout-top"></div>
+  <main id="main">
+    <div class="container">
+      <div class="gate" id="gate"><form class="form-card" id="gateForm" novalidate>
+        <h1 style="font-size:24px">ورود مدیر</h1><p>برای بررسی درخواست‌ها و نظرات وارد شوید.</p>
+        <div class="demo-code" style="margin-bottom:14px">این نسخه نمایشی است و ورود فقط در مرورگر بررسی می‌شود. رمز: <b dir="ltr">admin</b></div>
+        <div class="f"><label for="gatePass">رمز عبور</label><input class="input" type="password" id="gatePass" autocomplete="current-password"><small class="err" id="gateErr" hidden>رمز درست نیست.</small></div>
+        <button class="btn btn--primary btn--block" style="margin-top:14px">ورود به پنل</button>
+      </form></div>
+      <div class="admin" id="adminApp" hidden>
+        <nav class="admin-side" id="adminTabs" aria-label="بخش‌های پنل">
+          <button data-p="overview" aria-selected="true"><span data-ico="chart"></span>نمای کلی</button>
+          <button data-p="biz" aria-selected="false"><span data-ico="store"></span>تأیید کسب‌وکارها<span class="count" id="cBiz"></span></button>
+          <button data-p="reviews" aria-selected="false"><span data-ico="message"></span>تأیید نظرات<span class="count" id="cRev"></span></button>
+          <button data-p="users" aria-selected="false"><span data-ico="users"></span>کاربران جدید</button>
+          <button data-p="pages" aria-selected="false"><span data-ico="trending"></span>پربازدیدترین صفحات</button>
+          <button data-p="cats" aria-selected="false"><span data-ico="layers"></span>دسته‌بندی‌ها</button>
+          <button id="adminOut"><span data-ico="logout"></span>خروج</button>
+        </nav>
+        <div class="admin-main" id="adminBody"></div>
+      </div>
+    </div>
+  </main>
+  <div id="layout-bottom"></div>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/pages.js"></script>
+</body>
+</html>
