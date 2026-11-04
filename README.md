@@ -34,3 +34,8 @@
 - `assets/css/style.css`، `pages.css`: ظاهر سایت
 - `assets/js/data.js`: داده‌ها · `core.js`: هدر، فوتر، نقشه، ثبت نظر · `pages.js`: منطق هر صفحه
 - `assets/vendor/gsap.min.js`: کتابخانه انیمیشن
+
+---
+
+## پروژه دیگر در این مخزن
+- `roza/` — پیش‌نمایش سایت سالن زیبایی «روزا» با رزرو نوبت و تقویم شمسی. راهنما: `roza/README.md`

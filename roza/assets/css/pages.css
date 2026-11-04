@@ -1,0 +1,54 @@
+/* ROZA — صفحات داخلی */
+.detail { padding-block: var(--s-6) var(--section); }
+.detail__grid { display: grid; gap: var(--s-6); align-items: start; }
+.detail__img { aspect-ratio: 4 / 3.4; border-radius: var(--r-lg); }
+.detail__img--pro { aspect-ratio: 3 / 4; }
+@media (min-width: 900px) {
+  .detail__grid { grid-template-columns: 1.05fr 1fr; gap: var(--s-10); }
+  .detail__grid--pro { grid-template-columns: 0.8fr 1fr; }
+  .detail__img { position: sticky; top: 96px; aspect-ratio: 4 / 4.4; }
+  .detail__img--pro { aspect-ratio: 3 / 4; }
+}
+.detail__info h1 { font-size: var(--fs-h2); margin-bottom: var(--s-3); }
+.detail__info > .note { margin-top: var(--s-4); }
+.detail__h { font-size: var(--fs-lg); margin-top: var(--s-7); margin-bottom: var(--s-3); }
+.detail__cta { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-7); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s-3); margin: var(--s-6) 0 0; }
+.facts div { padding: var(--s-4); border: 1px solid var(--c-line); border-radius: 16px; }
+.facts dt { display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--c-muted); }
+.facts dt .ico { width: 16px; height: 16px; color: var(--c-primary); }
+.facts dd { margin: 4px 0 0; font-weight: 700; }
+.ticks { display: grid; gap: var(--s-2); }
+.ticks li { display: flex; gap: var(--s-3); align-items: flex-start; }
+.ticks .ico { color: var(--c-primary); margin-top: 5px; width: 18px; height: 18px; }
+.ticks + .note { margin-top: var(--s-4); }
+.svc-list { border-top: 1px solid var(--c-line); }
+.svc-list li { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); padding-block: var(--s-3); border-bottom: 1px solid var(--c-line); }
+.svc-list strong { display: block; }
+.svc-list span { font-size: var(--fs-sm); color: var(--c-muted); }
+.next { display: grid; gap: var(--s-3); margin-top: var(--s-3); }
+.next__day { padding: var(--s-4); border: 1px solid var(--c-line); border-radius: 16px; }
+.next__day h3 { font-size: var(--fs-sm); margin-bottom: var(--s-2); }
+.next__slots { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.next__slot, .next__more { display: inline-flex; align-items: center; min-height: 32px; padding: 0 var(--s-3); border-radius: 10px; background: var(--c-bg-soft); font-size: var(--fs-sm); font-weight: 600; }
+.next__more { color: var(--c-muted); background: none; }
+
+/* درباره */
+.about-intro { display: grid; gap: var(--s-6); align-items: center; }
+@media (min-width: 900px) { .about-intro { grid-template-columns: 1fr 1fr; gap: var(--s-10); } }
+.about-intro .media { aspect-ratio: 4 / 3; border-radius: var(--r-lg); }
+.about-intro h2 { font-size: var(--fs-h2); margin-bottom: var(--s-4); }
+.about-intro p + p { margin-top: var(--s-3); }
+.verify { margin-top: var(--s-5); }
+
+/* منابع */
+.cr-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.cr-table th, .cr-table td { text-align: start; padding: var(--s-3) var(--s-2); border-bottom: 1px solid var(--c-line); vertical-align: middle; }
+.cr-table th { color: var(--c-muted); font-weight: 600; font-size: var(--fs-xs); }
+.cr-table a { color: var(--c-primary); word-break: break-all; }
+.cr__thumb { display: block; width: 56px; height: 56px; border-radius: 10px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--c-line); border-radius: var(--r-card); padding: 0 var(--s-3); }
+.prose { max-width: 72ch; }
+.prose h2 { font-size: var(--fs-lg); margin: var(--s-7) 0 var(--s-3); }
+.prose p, .prose li { color: var(--c-muted); }
+.prose ul { list-style: disc; padding-inline-start: var(--s-5); display: grid; gap: var(--s-1); }
