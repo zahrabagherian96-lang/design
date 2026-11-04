@@ -59,6 +59,7 @@
       grid.innerHTML = list.length ? list.map(galItem).join('')
         : '<div class="gal-empty" style="grid-column:1/-1">' + U.icon('image') + '<p>هنوز نمونه‌کاری برای این دسته ثبت نشده است.</p></div>';
       var live = $(opts.live); if (live) live.textContent = U.fa(list.length) + ' نمونه‌کار نمایش داده شد';
+      if (R.motion) R.motion.gallery(grid);
     }
     grid.addEventListener('click', function (e) {
       var b = e.target.closest('[data-gal]'); if (!b) return;

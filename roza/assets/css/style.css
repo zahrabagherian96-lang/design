@@ -46,12 +46,13 @@
 @media (min-width: 1200px) { :root { --gutter: 32px; } }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 96px; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 96px; overflow-x: hidden; overflow-x: clip; }
 body {
   margin: 0; background: var(--c-bg); color: var(--c-text);
   font-family: var(--font); font-size: var(--fs-base); line-height: 1.8; font-weight: 400;
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 body.no-scroll { overflow: hidden; }
 img { max-width: 100%; display: block; }
@@ -236,7 +237,7 @@ button { cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--c-text); border-color: var(--c-text); color: #fff; }
 .chip .count { margin-inline-start: 6px; opacity: .7; font-size: var(--fs-xs); }
 @media (max-width: 767px) {
-  .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scrollbar-width: none; overscroll-behavior-x: contain; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
   .filters::-webkit-scrollbar { display: none; }
   .chip { flex: none; }
 }

@@ -187,6 +187,7 @@
       '</div>' +
       '<p class="ftr__demo">' + icon('info') + 'اطلاعات تماس، آدرس، قیمت‌ها و نام متخصصان نمونه و قابل‌ویرایش‌اند. تصاویر از Pexels و فقط برای پیش‌نمایش‌اند.</p>' +
       '<p class="ftr__copy">© ' + fa(1405) + ' روزا · ROZA Beauty Lounge</p>' +
+      '<div class="ftr__mega" aria-hidden="true">روزا</div>' +
       '</div></footer>' +
       '<div class="mcta" id="mcta"><a class="btn btn--primary btn--block" href="booking.html">' + icon('calendar') + 'رزرو نوبت</a></div>';
   }
@@ -220,6 +221,7 @@
     check();
   }
   function initReveal() {
+    if (R.motionOn) return;
     var els = document.querySelectorAll('[data-reveal]:not(.is-in)');
     if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
       els.forEach(function (el) { el.classList.add('is-in'); });

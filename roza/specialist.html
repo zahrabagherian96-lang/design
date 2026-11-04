@@ -11,8 +11,11 @@
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/motion.css">
+  <script>(function(h){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(sessionStorage.getItem('roza-pt')){sessionStorage.removeItem('roza-pt');h.classList.add('pt-in');}else{}}catch(e){}})(document.documentElement)</script>
 </head>
 <body data-page="specialist">
+  <div class="curtain" aria-hidden="true"><div class="curtain__brand"><span class="curtain__mask"><span class="curtain__fa">روزا</span></span><span class="curtain__en" dir="ltr"><span>R</span><span>O</span><span>Z</span><span>A</span></span></div><div class="curtain__bar"></div></div>
   <div id="layout-top"></div>
   <main id="main">
     <div id="pro"></div>
@@ -22,5 +25,9 @@
   <script src="assets/js/core.js"></script>
   <script src="assets/js/booking.js"></script>
   <script src="assets/js/pages.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="assets/js/motion.js"></script>
 </body>
 </html>

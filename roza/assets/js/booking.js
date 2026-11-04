@@ -264,7 +264,7 @@
     if (focus !== false) {
       var h = document.getElementById('stepTitle');
       var top = root.getBoundingClientRect().top + window.scrollY - 88;
-      if (window.scrollY > top) window.scrollTo({ top: top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      if (window.scrollY > top) { if (R.lenis) R.lenis.scrollTo(top); else window.scrollTo({ top: top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }
       if (h) h.focus({ preventScroll: true });
     }
   }
