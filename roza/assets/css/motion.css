@@ -132,9 +132,6 @@ html.hs-on .hs__bar { display: block; height: 2px; background: var(--c-line); ma
 html.hs-on .hs__bar i { display: block; height: 100%; background: var(--c-primary); transform-origin: right; transform: scaleX(0); }
 @media (max-height: 760px) { html.hs-on .hs__track .svc__desc { display: none; } }
 
-/* ---------- فوتر: واژه‌نشان بزرگ ---------- */
-.ftr { overflow: hidden; }
-.ftr__mega { font-size: clamp(6rem, 30vw, 26rem); font-weight: 900; line-height: .85; letter-spacing: -0.05em; color: var(--c-blush); text-align: center; margin-top: var(--s-8); margin-bottom: calc(var(--s-6) * -1); user-select: none; pointer-events: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .curtain { display: none !important; }

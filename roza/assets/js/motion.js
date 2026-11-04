@@ -226,9 +226,6 @@
     gsap.utils.toArray('.bridal__copy').forEach(function (c) {
       gsap.fromTo(c.children, { y: 40 }, { y: -20, ease: 'none', stagger: 0.05, scrollTrigger: { trigger: c, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
-    /* واژه‌نشان بزرگ فوتر */
-    var mega = document.querySelector('.ftr__mega');
-    if (mega) gsap.fromTo(mega, { yPercent: 40, opacity: 0.2 }, { yPercent: 0, opacity: 1, ease: 'none', scrollTrigger: { trigger: '.ftr', start: 'top bottom', end: 'bottom bottom', scrub: true } });
   }
 
   /* ---------- گالری: ستون‌ها با سرعت‌های متفاوت ---------- */

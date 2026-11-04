@@ -101,7 +101,7 @@
   function canReach(i) { for (var k = 0; k < i; k++) if (!stepDone(k)) return false; return true; }
 
   function head(n, title, sub) {
-    return '<header class="bk__head"><p class="bk__count">مرحله ' + U.fa(n + 1) + ' از ' + U.fa(4) + '</p>' +
+    return (S.reschedule ? '<p class="bk__resched">' + U.icon('calendar') + '<span>در حال تغییر زمان نوبت <strong dir="ltr">' + S.reschedule + '</strong>؛ پس از تأیید، نوبت قبلی جابه‌جا شده ثبت می‌شود.</span></p>' : '') + '<header class="bk__head"><p class="bk__count">مرحله ' + U.fa(n + 1) + ' از ' + U.fa(4) + '</p>' +
       '<h2 id="stepTitle" tabindex="-1">' + title + '</h2>' + (sub ? '<p class="bk__sub">' + sub + '</p>' : '') + '</header>';
   }
   function priceLine(s) {
@@ -417,9 +417,11 @@
       var booking = {
         code: code, service: s.id, specialist: S.specialist, assigned: S.specialist === 'any' ? S.assigned : S.specialist,
         date: S.date, time: S.time, name: S.form.name.trim(), mobile: normMobile(S.form.mobile), note: (S.form.note || '').trim(),
-        price: s.price, priceType: s.priceType, deposit: deposit(s), created: Date.now(), demo: true
+        price: s.price, priceType: s.priceType, deposit: deposit(s), created: Date.now(), demo: true, status: 'pending'
       };
       try { localStorage.setItem('roza-booking-' + code, JSON.stringify(booking)); } catch (e) { /* ignore */ }
+      /* تغییر زمان: نوبت قبلی جابه‌جاشده علامت می‌خورد */
+      if (S.reschedule && R.account) { var old = R.account.get(S.reschedule); if (old) { old.status = 'rescheduled'; old.newCode = code; R.account.saveBooking(old); } }
       try { sessionStorage.removeItem(KEY); } catch (e) { /* ignore */ }
       location.href = 'booking-result.html?code=' + encodeURIComponent(code);
     }, 900);
@@ -427,6 +429,10 @@
 
   /* ---------- شروع ---------- */
   function init() {
+    var rs = U.qs('reschedule');
+    if (rs && R.account && R.account.get(rs)) S.reschedule = rs; else if (U.qs('service') || U.qs('specialist')) S.reschedule = null;
+    var u = R.account && R.account.user();
+    if (u && (!S.form || !S.form.mobile)) S.form = { name: u.name || '', mobile: U.fa(u.mobile), note: u.notes || '', agree: false };
     root = document.getElementById('booking');
     if (!root) return;
     live = document.getElementById('bkLive');
@@ -434,7 +440,7 @@
     if (ps && U.byId(R.services, ps)) {
       if (S.service !== ps) { S.service = ps; S.time = null; S.assigned = null; if (S.specialist && S.specialist !== 'any' && !eligible(svc()).some(function (p) { return p.id === S.specialist; })) S.specialist = null; }
       S.step = 1;
-      if (pp && eligible(svc()).some(function (p) { return p.id === pp; })) { S.specialist = pp; S.step = 2; }
+      if (pp && (pp === 'any' || eligible(svc()).some(function (p) { return p.id === pp; }))) { S.specialist = pp; S.step = 2; }
       history.replaceState(null, '', 'booking.html');
     } else if (pp && U.byId(R.specialists, pp)) {
       var p = U.byId(R.specialists, pp);

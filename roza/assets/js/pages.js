@@ -196,7 +196,7 @@
         '<div><span>بیعانه</span><strong>' + (b.deposit ? U.price(b.deposit) : 'ندارد') + '</strong></div></div></div>' +
         '<div class="policy"><h3>' + U.icon('shield') + 'قوانین لغو و تغییر</h3><p>' + R.policy.cancelText + '</p></div>' +
         '<p class="demo-note">' + U.icon('info') + '<span>این رزرو آزمایشی است: نوبتی در سالن ثبت نشده، پیامکی ارسال نشده و پرداختی انجام نشده است. اطلاعات فقط در همین مرورگر ذخیره شده است.</span></p>' +
-        '<div class="result__actions"><a class="btn btn--primary" href="index.html">بازگشت به خانه</a><a class="btn btn--ghost" href="booking.html">رزرو نوبت دیگر</a></div></div>';
+        '<div class="result__actions"><a class="btn btn--primary" href="profile.html">نوبت‌های من</a><a class="btn btn--ghost" href="index.html">بازگشت به خانه</a><a class="btn btn--ghost" href="booking.html">رزرو نوبت دیگر</a></div></div>';
       $('#copyCode').addEventListener('click', function () {
         var done = function () { $('#copyLive').textContent = 'کد پیگیری کپی شد'; $('#copyCode').innerHTML = U.icon('check'); };
         if (navigator.clipboard) navigator.clipboard.writeText(b.code).then(done, done); else done();
@@ -215,5 +215,5 @@
   function notFound(msg, href, label) {
     return '<div class="container section"><div class="gal-empty">' + U.icon('info') + '<p>' + msg + '</p><a class="btn btn--primary" href="' + href + '" style="margin-top:16px">' + label + '</a></div></div>';
   }
-  R.page = function (name) { if (pages[name]) pages[name](); };
+  R.page = function (name) { if (pages[name]) pages[name](); else if (R.extraPages && R.extraPages[name]) R.extraPages[name](); };
 })();

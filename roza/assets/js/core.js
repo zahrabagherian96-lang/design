@@ -157,13 +157,15 @@
       '<div class="demo-bar" role="note">نسخه نمایشی؛ اطلاعات، قیمت‌ها و تصاویر نمونه‌اند و رزرو واقعی ثبت نمی‌شود.</div>' +
       '<header class="hdr" id="hdr"><div class="container hdr__in">' + logo() +
       '<nav class="hdr__nav" aria-label="منوی اصلی"><ul>' + links + '</ul></nav>' +
+      '<a class="icon-btn hdr__acc" href="profile.html" aria-label="ورود به حساب"' + (page === 'profile' ? ' aria-current="page"' : '') + '>' + icon('user') + '</a>' +
       '<a class="btn btn--primary hdr__cta" href="booking.html">رزرو نوبت</a>' +
       '<button class="icon-btn hdr__menu" id="menuBtn" aria-label="باز کردن منو" aria-expanded="false" aria-controls="drawer">' + icon('menu') + '</button>' +
       '</div></header>' +
       '<div class="drawer" id="drawer" hidden><div class="drawer__backdrop" data-close></div>' +
       '<div class="drawer__panel" role="dialog" aria-modal="true" aria-label="منو">' +
       '<div class="drawer__top">' + logo() + '<button class="icon-btn" data-close aria-label="بستن منو">' + icon('x') + '</button></div>' +
-      '<ul class="drawer__list">' + '<li><a href="index.html"' + (page === 'home' ? ' aria-current="page"' : '') + '>خانه</a></li>' + links + '</ul>' +
+      '<ul class="drawer__list">' + '<li><a href="index.html"' + (page === 'home' ? ' aria-current="page"' : '') + '>خانه</a></li>' + links +
+      '<li><a href="profile.html"' + (page === 'profile' ? ' aria-current="page"' : '') + '>حساب من</a></li></ul>' +
       '<a class="btn btn--primary btn--block" href="booking.html">رزرو نوبت</a>' +
       '<a class="drawer__phone" href="' + R.salon.phoneHref + '">' + icon('phone') + '<span dir="ltr">' + fa(R.salon.phone) + '</span></a>' +
       '</div></div>';
@@ -187,7 +189,6 @@
       '</div>' +
       '<p class="ftr__demo">' + icon('info') + 'اطلاعات تماس، آدرس، قیمت‌ها و نام متخصصان نمونه و قابل‌ویرایش‌اند. تصاویر از Pexels و فقط برای پیش‌نمایش‌اند.</p>' +
       '<p class="ftr__copy">© ' + fa(1405) + ' روزا · ROZA Beauty Lounge</p>' +
-      '<div class="ftr__mega" aria-hidden="true">روزا</div>' +
       '</div></footer>' +
       '<div class="mcta" id="mcta"><a class="btn btn--primary btn--block" href="booking.html">' + icon('calendar') + 'رزرو نوبت</a></div>';
   }
@@ -216,7 +217,8 @@
     var h = document.getElementById('hdr');
     if (!h) return;
     var on = false;
-    function check() { var s = window.scrollY > 24; if (s !== on) { on = s; h.classList.toggle('is-compact', s); } }
+    /* دو آستانه جدا تا تغییر ارتفاع هدر باعث رفت‌وبرگشت نشود */
+    function check() { var y = window.scrollY, s = on ? y > 8 : y > 48; if (s !== on) { on = s; h.classList.toggle('is-compact', s); } }
     window.addEventListener('scroll', check, { passive: true });
     check();
   }
@@ -311,6 +313,7 @@
     if (page === 'booking') document.body.classList.add('no-mcta');
     document.querySelectorAll('[data-ico]').forEach(function (el) { el.outerHTML = icon(el.dataset.ico, el.className); });
     initDrawer(); initHeader();
+    if (R.account) R.account.updateHeader();
     if (window.ROZA.page) window.ROZA.page(page);
     initReveal();
   }
