@@ -1,0 +1,140 @@
+/* ROZA — استایل لایه حرکت و هاورهای پیشرفته */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* با لایه حرکت، آشکارسازی CSS ساده خاموش است (GSAP کنترل می‌کند) */
+html.has-motion [data-reveal] { opacity: 1; transform: none; transition: none; }
+
+/* کلمه‌های شکسته‌شده */
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding-block: 0.08em; margin-block: -0.08em; }
+.wi { display: inline-block; will-change: transform; }
+.statement__text .w { overflow: visible; }
+
+/* ---------- پرده (پیش‌بارگذار / انتقال صفحه) ---------- */
+.curtain { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; background: var(--c-bg-soft); clip-path: inset(0 0 0 0); }
+html.preload .curtain, html.pt-in .curtain, html.pt-out .curtain { display: flex; }
+html.pt-in .curtain .curtain__brand { display: none; }
+html.pt-out .curtain .curtain__brand { display: none; }
+.curtain__brand { display: flex; flex-direction: column; align-items: center; gap: var(--s-3); }
+.curtain__fa { display: block; font-size: clamp(4rem, 12vw, 9rem); font-weight: 800; line-height: 1; color: var(--c-text); letter-spacing: -0.03em; }
+.curtain__mask { overflow: hidden; display: block; padding-block: 0.1em; }
+.curtain__en { display: flex; gap: 0.32em; font-size: 0.8125rem; letter-spacing: 0.3em; color: var(--c-primary); font-weight: 600; overflow: hidden; }
+.curtain__en span { display: inline-block; }
+.curtain__bar { position: absolute; inset-inline: 0; bottom: 0; height: 2px; background: var(--c-primary); transform-origin: right; transform: scaleX(0); }
+/* اگر اسکریپت اجرا نشد، پرده خودش کنار می‌رود */
+@keyframes curtainFailsafe { to { visibility: hidden; } }
+html:not(.has-motion) .curtain { animation: curtainFailsafe 0s 2.5s forwards; }
+
+/* ---------- نوار پیشرفت اسکرول ---------- */
+.progress { position: fixed; top: 0; inset-inline: 0; height: 2px; z-index: 120; background: var(--c-primary); transform-origin: right; transform: scaleX(0); pointer-events: none; }
+
+/* ---------- هدر پنهان‌شونده ---------- */
+html.has-motion .hdr { transition: transform 500ms cubic-bezier(.7, 0, .2, 1), border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease); }
+html.has-motion .hdr.is-hidden { transform: translateY(-100%); }
+
+/* ---------- کرسر ---------- */
+html.has-cursor, html.has-cursor body, html.has-cursor a, html.has-cursor button, html.has-cursor label { cursor: none; }
+html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: text; }
+.cursor { position: fixed; inset: 0; pointer-events: none; z-index: 250; opacity: 0; transition: opacity 300ms; }
+.cursor.is-on { opacity: 1; }
+.cursor__dot, .cursor__ring { position: fixed; top: 0; left: 0; border-radius: 50%; }
+.cursor__dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--c-primary); transition: opacity 200ms; }
+.cursor__ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1px solid rgba(167, 53, 96, .45); display: grid; place-items: center; transition: width 350ms var(--ease), height 350ms var(--ease), margin 350ms var(--ease), background-color 350ms var(--ease), border-color 350ms var(--ease); }
+.cursor__label { font-size: 0.75rem; font-weight: 700; color: #fff; opacity: 0; transform: scale(.6); transition: opacity 250ms, transform 350ms var(--ease); white-space: nowrap; }
+.cursor.is-link .cursor__ring { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: rgba(167, 53, 96, .08); border-color: rgba(167, 53, 96, .25); }
+.cursor.is-link .cursor__dot { opacity: 0; }
+.cursor.is-view .cursor__ring { width: 96px; height: 96px; margin: -48px 0 0 -48px; background: var(--c-primary); border-color: var(--c-primary); }
+.cursor.is-view .cursor__label { opacity: 1; transform: none; }
+.cursor.is-view .cursor__dot { opacity: 0; }
+.cursor.is-text .cursor__ring, .cursor.is-text .cursor__dot { opacity: 0; }
+.cursor.is-down .cursor__ring { transform: scale(.85); }
+
+/* ---------- هاور دکمه‌ها: پر شدن از پایین ---------- */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; transform: translateY(101%); transition: transform 450ms cubic-bezier(.7, 0, .2, 1); }
+.btn--primary::after { background: var(--c-text); }
+.btn--primary:hover { background: var(--c-primary); }
+.btn--ghost::after { background: var(--c-text); }
+.btn--ghost:hover { color: #fff; border-color: var(--c-text); }
+.btn--soft::after { background: var(--c-primary); }
+.btn--soft:hover { color: #fff; background: var(--c-primary-tint); }
+.btn:hover::after { transform: translateY(0); }
+.btn[disabled]::after, .btn--link::after { display: none; }
+.btn .ico { transition: transform 450ms cubic-bezier(.7, 0, .2, 1); }
+.btn:hover .ico:last-child { transform: translateX(-4px); }
+
+/* لینک‌های منو: خط زیر از راست */
+.hdr__nav a { position: relative; }
+.hdr__nav a::after { content: ""; position: absolute; inset-inline: var(--s-3); bottom: 8px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 450ms cubic-bezier(.7, 0, .2, 1); }
+.hdr__nav a:hover::after, .hdr__nav a[aria-current="page"]::after { transform: scaleX(1); }
+.hdr__nav a:hover { background: none; }
+.ftr__links a, .ftr__list a { background: linear-gradient(currentColor, currentColor) right bottom / 0 1px no-repeat; transition: background-size 450ms cubic-bezier(.7, 0, .2, 1), color 200ms; }
+.ftr__links a:hover, .ftr__list a:hover { background-size: 100% 1px; }
+
+/* ---------- کارت خدمات: هاور پیشرفته ---------- */
+.svc { transition: transform 600ms cubic-bezier(.2, .7, .2, 1), box-shadow 600ms var(--ease), border-color 300ms; }
+.svc:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(41, 33, 38, .08); }
+.svc .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(41, 33, 38, .35), transparent 55%); opacity: 0; transition: opacity 500ms var(--ease); }
+.svc:hover .media::after { opacity: 1; }
+.svc:hover .media img { transform: scale(1.07); }
+.svc .media img { transition: transform 1200ms cubic-bezier(.2, .7, .2, 1); }
+.svc__body h3 a { background: linear-gradient(currentColor, currentColor) right bottom / 0 1px no-repeat; transition: background-size 500ms cubic-bezier(.7, 0, .2, 1), color 200ms; }
+.svc:hover .svc__body h3 a { background-size: 100% 1px; color: var(--c-primary); }
+
+/* ---------- گالری و متخصصان ---------- */
+.gal__btn .media, .pro .media { will-change: transform; }
+.gal__btn .media img, .pro .media img { transition: transform 1200ms cubic-bezier(.2, .7, .2, 1), filter 600ms; }
+.gal__btn:hover .media img { transform: scale(1.08); }
+.gal--moving { padding-bottom: 80px; }
+.gal--moving .gal__item.is-entering { animation: none; }
+.pro .media::after { content: ""; position: absolute; inset: 0; background: var(--c-primary); mix-blend-mode: multiply; opacity: 0; transition: opacity 500ms var(--ease); }
+.pro:hover .media::after { opacity: .18; }
+.pro:hover .media img { transform: scale(1.06); }
+
+/* ---------- جمله شاخص ---------- */
+.statement { position: relative; padding-block: clamp(96px, 14vw, 200px); overflow: hidden; }
+.statement__text { position: relative; z-index: 1; max-width: 22ch; margin-inline: auto; text-align: center; font-size: clamp(1.75rem, 1rem + 3.4vw, 3.75rem); font-weight: 700; line-height: 1.45; letter-spacing: -0.02em; text-wrap: balance; }
+.statement__text em { font-style: normal; color: var(--c-primary); }
+.statement__img { position: absolute; width: clamp(110px, 14vw, 220px); aspect-ratio: 3 / 4; border-radius: var(--r-card); overflow: hidden; background: var(--c-blush); z-index: 0; }
+.statement__img img { width: 100%; height: 100%; object-fit: cover; }
+.statement__img--a { top: 12%; inset-inline-start: 4%; }
+.statement__img--b { bottom: 8%; inset-inline-end: 6%; }
+.statement__img--c { top: 18%; inset-inline-end: 14%; width: clamp(80px, 9vw, 140px); }
+@media (max-width: 767px) {
+  .statement__img--c { display: none; }
+  .statement__img { opacity: .9; width: 96px; }
+  .statement__img--a { top: 4%; }
+  .statement__img--b { bottom: 3%; }
+}
+
+/* ---------- نوار متحرک ---------- */
+.marquee { overflow: hidden; border-block: 1px solid var(--c-line); padding-block: var(--s-5); background: var(--c-bg); }
+.marquee__track { display: flex; width: max-content; will-change: transform; }
+.marquee__item { display: inline-flex; align-items: center; gap: var(--s-6); padding-inline-end: var(--s-6); font-size: clamp(2rem, 1.2rem + 3.6vw, 4.5rem); font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; line-height: 1.3; }
+.marquee__item:nth-child(even) { color: var(--c-primary); }
+.marquee__item .ico { width: 0.5em; height: 0.5em; color: var(--c-blush); stroke-width: 1.2; }
+html:not(.has-motion) .marquee__track { flex-wrap: wrap; width: auto; justify-content: center; }
+html:not(.has-motion) .marquee__item { font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem); }
+
+/* ---------- خدمات افقی ---------- */
+.hs { background: var(--c-bg-soft); }
+.hs__pin { padding-block: var(--section); }
+.hs__bar { display: none; }
+html.hs-on .hs__pin { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-block: 0; }
+html.hs-on .hs__head .sec-head { margin-bottom: var(--s-6); }
+html.hs-on .hs__viewport { overflow: hidden; }
+html.hs-on .hs__track { max-width: none; margin-inline: 0; display: flex; gap: var(--s-5); width: max-content; grid-template-columns: none; padding-inline: max(var(--gutter), calc((100vw - 1240px) / 2 + var(--gutter))); will-change: transform; }
+html.hs-on .hs__track .svc { width: clamp(320px, 27vw, 400px); flex: none; }
+html.hs-on .hs__track .svc .media { aspect-ratio: 4 / 3.2; }
+html.hs-on .hs__bar { display: block; height: 2px; background: var(--c-line); margin-top: var(--s-6); border-radius: 2px; overflow: hidden; }
+html.hs-on .hs__bar i { display: block; height: 100%; background: var(--c-primary); transform-origin: right; transform: scaleX(0); }
+@media (max-height: 760px) { html.hs-on .hs__track .svc__desc { display: none; } }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .curtain { display: none !important; }
+  .btn::after { display: none; }
+  .svc:hover { transform: none; }
+}
