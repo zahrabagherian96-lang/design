@@ -26,7 +26,7 @@ while ( have_posts() ) :
 					<div><dt><?php echo roza_icon( 'shield' ); // phpcs:ignore ?>بیعانه</dt><dd><?php echo esc_html( $roza_dep ? roza_price( $roza_dep ) . ' (' . roza_fa( roza_policy()['depositPercent'] ) . '٪)' : 'ندارد' ); ?></dd></div>
 				</dl>
 				<?php if ( 'estimate' === $roza_s['priceType'] ) : ?><p class="note"><?php echo roza_icon( 'info' ); // phpcs:ignore ?><span><?php echo esc_html( roza_policy()['priceText'] ); ?></span></p><?php endif; ?>
-				<?php if ( get_the_content() ) : ?><div class="entry detail__content"><?php the_content(); ?></div><?php endif; ?>
+				<?php if ( get_the_content() && trim( wp_strip_all_tags( get_the_content() ) ) !== trim( wp_strip_all_tags( $roza_s['short'] ) ) ) : ?><div class="entry detail__content"><?php the_content(); ?></div><?php endif; ?>
 				<?php if ( $roza_s['includes'] ) : ?>
 					<h2 class="detail__h">آنچه انجام می‌شود</h2>
 					<ul class="ticks"><?php foreach ( $roza_s['includes'] as $roza_x ) : ?><li><?php echo roza_icon( 'check' ); // phpcs:ignore ?><?php echo esc_html( $roza_x ); ?></li><?php endforeach; ?></ul>
